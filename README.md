@@ -44,9 +44,10 @@ The website content is managed through Markdown files in the `content/` director
 
 Each section of the website has its own directory under `content/`:
 
-- `content/about/` - About page content
+- `content/bio/` - Bio page content
 - `content/clay/` - Clay artworks gallery
-- `content/sculpture/` - Sculpture artworks gallery
+- `content/wire/` - Wire artworks gallery
+- `content/linkspress/` - Links and Press information 
 - `content/contact/` - Contact information
 
 ## Managing Image Galleries
