@@ -55,6 +55,7 @@ jobs:
         run: |
           hugo \
             --minify \
+            --baseURL "https://arts-link.github.io/jillbonovitz.com/" \
             --environment production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
