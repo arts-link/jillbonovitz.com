@@ -1,5 +1,6 @@
 {{ define "main" }}
-<article class="contact-page">
+{{ $bgImage := .Resources.GetMatch "images/bonovitz_0765-wall-jill-web.jpg" }}
+<article class="contact-page" style="background-image: url('{{ $bgImage.RelPermalink }}');">
   <div class="contact-content">
     {{ .Content }}
   </div>

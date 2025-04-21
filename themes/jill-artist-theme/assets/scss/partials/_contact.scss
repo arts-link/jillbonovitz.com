@@ -1,16 +1,19 @@
 // Contact page layout
 .contact-page {
-  width: 1200px;
-  height: 601px; // Exact image height
+  width: 100%;
+  max-width: 1200px;
+  height: 601px;
   max-height: 601px;
   position: relative;
-  background-image: url('/images/bonovitz_0765-wall-jill-web.jpg');
-  background-size: cover;
+  background-size: auto 100%; // Changed from 'cover' to 'auto 100%'
+  background-position: left center; // Changed from 'center' to 'left center'
   background-repeat: no-repeat;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   display: flex;
-  align-items: flex-start; // Align to top
-  justify-content: flex-start; // Align to left
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal scrollbar
 }
 
 // Email content styling - normal flow

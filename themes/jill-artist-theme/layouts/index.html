@@ -1,5 +1,6 @@
 {{ define "main" }}
-<div class="home-background">
-  <!-- Background image controlled via CSS -->
+{{ $bgImage := .Resources.GetMatch "images/bonovitz_0754-tall-home.jpg" }}
+<div class="home-background" style="background-image: url('{{ $bgImage.RelPermalink }}');">
+  <!-- Background image now loaded via Hugo resources -->
 </div>
 {{ end }}
