@@ -1,7 +1,7 @@
 <div class="top-black-line"></div>
 <div class="nav-container">
   <!-- Site title -->
-  <a href='{{ "/" | relURL }}' class="site-title">JILL BONOVITZ</a>
+  <a href='{{ "/" | absURL }}' class="site-title">JILL BONOVITZ</a>
   
   <!-- Hamburger menu for mobile -->
   <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
@@ -12,22 +12,22 @@
   <nav class="main-navigation">
     <ul id="primary-menu" class="menu">
       <li class="menu-item {{ if .IsHome }}active{{ end }}">
-        <a href='{{ "/" | relURL }}'>Home</a>
+        <a href='{{ "/" | absURL }}'>Home</a>
       </li>
       <li class="menu-item {{ if or (eq .Section "wire") (eq .RelPermalink "/wire/") }}active{{ end }}">
-        <a href='{{ "/wire/" | relURL }}'>Wire</a>
+        <a href='{{ "/wire/" | absURL }}'>Wire</a>
       </li>
       <li class="menu-item {{ if or (eq .Section "clay") (eq .RelPermalink "/clay/") }}active{{ end }}">
-        <a href='{{ "/clay/" | relURL }}'>Clay</a>
+        <a href='{{ "/clay/" | absURL }}'>Clay</a>
       </li>
       <li class="menu-item {{ if or (eq .Section "linkspress") (eq .RelPermalink "/linkspress/") }}active{{ end }}">
-        <a href='{{ "/linkspress/" | relURL }}'>Links/Press</a>
+        <a href='{{ "/linkspress/" | absURL }}'>Links/Press</a>
       </li>
       <li class="menu-item {{ if or (eq .Section "bio") (eq .RelPermalink "/bio/") }}active{{ end }}">
-        <a href='{{ "/bio/" | relURL }}'>Bio</a>
+        <a href='{{ "/bio/" | absURL }}'>Bio</a>
       </li>
       <li class="menu-item {{ if or (eq .Section "contact") (eq .RelPermalink "/contact/") }}active{{ end }}">
-        <a href='{{ "/contact/" | relURL }}'>Contact</a>
+        <a href='{{ "/contact/" | absURL }}'>Contact</a>
       </li>
     </ul>
   </nav>
