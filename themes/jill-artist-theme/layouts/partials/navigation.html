@@ -1,0 +1,51 @@
+<div class="top-black-line"></div>
+<div class="nav-container">
+  <!-- Site title -->
+  <a href="/" class="site-title">JILL BONOVITZ</a>
+  
+  <!-- Hamburger menu for mobile -->
+  <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+    <span class="sr-only">Menu</span>
+    <span class="menu-icon"></span>
+  </button>
+  
+  <nav class="main-navigation">
+    <ul id="primary-menu" class="menu">
+      <li class="menu-item {{ if .IsHome }}active{{ end }}">
+        <a href="/">Home</a>
+      </li>
+      <li class="menu-item {{ if or (eq .Section "wire") (eq .RelPermalink "/wire/") }}active{{ end }}">
+        <a href="/wire/">Wire</a>
+      </li>
+      <li class="menu-item {{ if or (eq .Section "clay") (eq .RelPermalink "/clay/") }}active{{ end }}">
+        <a href="/clay/">Clay</a>
+      </li>
+      <li class="menu-item {{ if or (eq .Section "linkspress") (eq .RelPermalink "/linkspress/") }}active{{ end }}">
+        <a href="/linkspress/">Links/Press</a>
+      </li>
+      <li class="menu-item {{ if or (eq .Section "bio") (eq .RelPermalink "/bio/") }}active{{ end }}">
+        <a href="/bio/">Bio</a>
+      </li>
+      <li class="menu-item {{ if or (eq .Section "contact") (eq .RelPermalink "/contact/") }}active{{ end }}">
+        <a href="/contact/">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="nav-divider"></div>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-navigation');
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        mainNav.classList.toggle('active');
+      });
+    }
+  });
+</script>

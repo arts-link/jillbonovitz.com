@@ -1,0 +1,195 @@
+/* filepath: /Volumes/wanderer/dev/solo/jill/muse-site/www/jillbonovitz.com/assets/scss/partials/_header.scss */
+
+// Site header container
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: $z-header;
+  
+  .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Top black line
+.top-black-line {
+  height: 15px;
+  background-color: $color-black;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Navigation container styling
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  position: relative;
+  padding: 2rem $container-padding;
+  background-color: $color-bg;
+}
+
+// Site title styling
+.site-title {
+  background-color: transparent;
+  text-align: left;
+  color: $color-accent;
+  line-height: 36px;
+  font-size: 36px;
+  letter-spacing: $letter-spacing-title;
+  font-weight: 300;
+  margin-right: 2rem;
+  margin-bottom: 0;
+}
+
+// Navigation divider line
+.nav-divider {
+  width: 100%;
+  height: 1px;
+  background-color: $color-accent;
+  opacity: 0.7;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Main navigation styling
+.main-navigation {
+  flex-grow: 1;
+  display: block; // Ensure it's visible by default
+  
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-right: 1.5rem;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+    position: relative;
+    text-transform: uppercase;
+    color: $color-accent;
+    
+    &:hover {
+      color: $color-accent;
+    }
+  }
+  
+  .active a {
+    color: $color-active;
+    
+    &:after {
+      content: none;
+    }
+  }
+}
+
+// Hamburger menu button - hidden by default
+.menu-toggle {
+  display: none; // Hide by default on all screen sizes
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: $container-padding;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: $z-menu;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  
+  &[aria-expanded="true"] {
+    .menu-icon {
+      background-color: transparent;
+      
+      &:before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      
+      &:after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+    }
+  }
+}
+
+// Hamburger icon
+.menu-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: $color-text;
+  position: relative;
+  transition: background-color 0.2s ease;
+  
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $color-text;
+    transition: all 0.3s ease;
+  }
+  
+  &:before {
+    top: -7px;
+  }
+  
+  &:after {
+    top: 7px;
+  }
+}
+
+// Homepage mobile menu only kicks in at a smaller breakpoint
+@media (max-width: 599px) {
+  body.home .main-navigation {
+    &:not(.active) {
+      display: none;
+    }
+    
+    &.active {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: $z-menu;
+      padding: 1rem;
+      
+      ul {
+        flex-direction: column;
+      }
+      
+      li {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+}

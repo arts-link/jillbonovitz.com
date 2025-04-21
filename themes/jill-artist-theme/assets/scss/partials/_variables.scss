@@ -1,0 +1,33 @@
+/* filepath: /Volumes/wanderer/dev/solo/jill/muse-site/www/jillbonovitz.com/assets/scss/partials/_variables.scss */
+// Colors
+$color-bg: #ffffff;
+$color-text: #3A3C3F;      // Original text color from bio.css
+$color-accent: #7F7F7F;    // Hover color from site_global.css
+$color-active: #ED1C24;    // Original link color from site_global.css
+$color-visited: #FF0000;   // Visited link color
+$color-light: #e1e1e1;
+$color-black: #000000;     // Black for top line
+
+// Typography
+$font-main: 'tondo', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.4;
+$line-height-small: 1.2;
+$letter-spacing-base: 1px;
+$letter-spacing-title: 3px;
+
+// Spacing
+$spacing-unit: 1rem;
+$content-width: 768px;
+$container-padding: 45px;
+$mobile-padding: 20px;
+
+// Breakpoints
+$breakpoint-tablet: 900px;
+$breakpoint-mobile: 600px;
+$breakpoint-small: 480px;
+
+// Z-index layers
+$z-header: 620;
+$z-menu: 100;
+$z-background: -1;

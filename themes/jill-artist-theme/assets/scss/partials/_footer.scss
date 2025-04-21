@@ -1,0 +1,13 @@
+// Footer styling
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid $color-light;
+  text-align: center;
+  font-size: 0.9rem;
+  
+  .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}

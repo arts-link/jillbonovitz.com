@@ -1,0 +1,112 @@
+// Base reset styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-main;
+  line-height: $line-height-base;
+  color: $color-text;
+  background: $color-bg;
+  font-weight: 300;
+}
+
+// Accessibility utility for screen readers only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Container styles
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+// Main content
+.site-content {
+  padding-top: 115px; // Should match total height of header
+  padding-bottom: 3rem;
+  
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+// Page content
+.page-content {
+  max-width: $content-width;
+  width: 100%;
+  padding-top: 30px;
+  padding-left: $container-padding;
+  
+  h1 {
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    margin: 2rem 0 1rem;
+  }
+  
+  ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Links and press sections
+.links-list {
+  list-style: none;
+  margin-bottom: 2rem;
+  
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+.press-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $color-light;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .date {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: $color-accent;
+  }
+}
+
+.date, .meta {
+  color: $color-accent;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.back-to-top {
+  text-align: right;
+  margin-top: 1rem;
+}

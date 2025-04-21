@@ -1,0 +1,147 @@
+// Tablet Breakpoint
+@media screen and (max-width: $breakpoint-tablet) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.75rem; // Reduced top padding
+    padding-bottom: 0.75rem; // Reduced bottom padding
+  }
+  
+  .site-title {
+    margin-bottom: 0.5rem; // Add more space between title and nav items
+  }
+  
+  .main-navigation {
+    width: 100%;
+    margin-top: 0.5rem; // Add additional top margin to nav container
+    display: block; // Ensure it's visible
+    
+    ul {
+      justify-content: flex-start;
+    }
+    
+    li {
+      margin-bottom: 0.25rem; // Make navigation items more compact
+    }
+  }
+  
+  .site-content {
+    padding-top: 115px; // Adjusted for smaller screens
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-page {
+    width: 950px;
+    height: 450px;
+    max-height: 501px;
+  }
+  
+  .contact-content {
+    width: 300px;
+  }
+}
+
+// Mobile Breakpoint 
+@media screen and (max-width: $breakpoint-mobile) {
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem $mobile-padding; // Reduced padding on mobile
+  }
+  
+  .site-content {
+    padding-top: 115px; // Adjusted for smaller screens
+  }
+  
+  .contact-page {
+    width: 100%; // Full width
+    height: 600px; // Fixed height as requested
+    min-height: 0; // Remove min-height
+    max-height: none; // Remove max-height
+    background-position: center center; // Center the image
+    background-size: cover; // Cover will crop the image instead of scaling it
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end; // Align items to bottom
+    justify-content: center; // Center horizontally
+    padding-bottom: 40px; // Create 20px space from bottom
+  }
+  
+  .contact-content {
+    width: 280px; // Fixed width better than 100%
+    margin: 0; // Remove auto margins
+  }
+  
+  .menu-toggle {
+    display: none; // But don't show the hamburger yet
+  }
+  
+  .main-navigation {
+    display: block; // Still show regular navigation
+  }
+}
+
+// Small Mobile Breakpoint
+@media screen and (max-width: $breakpoint-small) {
+  .site-title {
+    font-size: 1.25rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  .site-content {
+    padding-top: 80px; // Adjusted for smaller screens
+  }
+  
+  .page-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  // Add hamburger menu toggle at this breakpoint
+  .menu-toggle {
+    display: block;
+    right: $mobile-padding; // Match the container's horizontal padding
+  }
+  
+  // Add mobile menu styles at this breakpoint
+  .main-navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $color-bg;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: $z-menu;
+    
+    &.active {
+      display: block;
+    }
+    
+    ul {
+      flex-direction: column;
+    }
+    
+    li {
+      margin-right: 0;
+      margin-bottom: 0.75rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+

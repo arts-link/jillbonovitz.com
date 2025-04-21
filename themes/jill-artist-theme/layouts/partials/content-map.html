@@ -1,0 +1,125 @@
+{{ if .Params.showContentMap | default (site.Params.defaultShowContentMap) }}
+<!-- Add this script at the beginning to add a class to the body -->
+<script>
+  document.body.classList.add('has-content-map');
+</script>
+
+<!-- Mobile toggle button -->
+<button class="content-map-mobile-toggle" id="mobile-map-toggle" aria-label="Toggle page navigation" aria-expanded="false">
+  <span class="toggle-icon"></span>
+</button>
+
+<nav class="content-map" id="content-map">
+  <div class="content-map-header">
+    <h2 class="content-map-title">On this page</h2>
+    <button class="content-map-toggle" aria-label="Toggle content map" title="Toggle content map">
+      <span class="toggle-icon"></span>
+    </button>
+  </div>
+  
+  <ul class="content-map-list">
+    {{ $headers := findRE "<h[1-3].*?>(.|\n])+?</h[1-3]>" .Content }}
+    {{ $currentH2 := "" }}
+    {{ $h2HasChildren := false }}
+    {{ $h2Open := false }}
+    
+    {{ range $headers }}
+      {{ $header := . }}
+      {{ $level := index (findRE "[1-3]" . 1) 0 }}
+      {{ $id := replaceRE ".*id=\"(.*)\".*" "$1" $header }}
+      {{ $title := replaceRE "<h[1-3].*?>(.+?)</h[1-3]>" "$1" $header | safeHTML }}
+      
+      {{ if eq $level "1" }}
+        <li class="level-1">
+          <a href="#{{ $id }}" class="map-link">{{ $title }}</a>
+        </li>
+      {{ else if eq $level "2" }}
+        {{ if $h2Open }}
+          </ul></li>
+          {{ $h2Open = false }}
+        {{ end }}
+        <li class="level-2">
+          <a href="#{{ $id }}" class="map-link">{{ $title }}</a>
+          {{ $currentH2 = $id }}
+          {{ $h2HasChildren = false }}
+      {{ else if eq $level "3" }}
+        {{ if not $h2HasChildren }}
+          {{ $h2HasChildren = true }}
+          <button class="h3-toggle" aria-expanded="false">
+            <span class="sr-only">Toggle section</span>
+            <span class="toggle-icon"></span>
+          </button>
+          <ul class="h3-list" hidden>
+          {{ $h2Open = true }}
+        {{ end }}
+        <li class="level-3">
+          <a href="#{{ $id }}" class="map-link">{{ $title }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+    
+    {{ if $h2Open }}
+      </ul></li>
+    {{ end }}
+  </ul>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Main content map toggle for desktop
+  const contentMap = document.getElementById('content-map');
+  const mapToggle = contentMap.querySelector('.content-map-toggle');
+  
+  // Set initial state - start expanded
+  contentMap.classList.remove('collapsed');
+  
+  mapToggle.addEventListener('click', function() {
+    contentMap.classList.toggle('collapsed');
+    const isCollapsed = contentMap.classList.contains('collapsed');
+    mapToggle.setAttribute('aria-expanded', !isCollapsed);
+    
+    // Force layout recalculation to ensure transition works
+    window.getComputedStyle(document.querySelector('.page-content')).paddingLeft;
+  });
+  
+  // Mobile toggle
+  const mobileToggle = document.getElementById('mobile-map-toggle');
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', function() {
+      contentMap.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !isExpanded);
+    });
+  }
+  
+  // H3 accordions
+  const h3Toggles = contentMap.querySelectorAll('.h3-toggle');
+  h3Toggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      
+      const list = toggle.nextElementSibling;
+      if (expanded) {
+        list.setAttribute('hidden', '');
+      } else {
+        list.removeAttribute('hidden');
+      }
+    });
+  });
+  
+  // Close mobile menu when clicking a link
+  const mapLinks = contentMap.querySelectorAll('.map-link');
+  mapLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth < 900) {
+        contentMap.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+});
+</script>
+{{ end }}

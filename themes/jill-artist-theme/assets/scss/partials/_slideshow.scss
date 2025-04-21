@@ -1,0 +1,181 @@
+// Slideshow container - fix overflow issues
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px; // Increased from 1200px to 1280px
+  margin: 0 auto 2rem;
+  overflow: hidden; // Prevent both horizontal AND vertical scrolling
+  box-sizing: border-box; // Include padding in width calculation
+}
+
+// Slideshow
+.slideshow {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box; // Include padding in width calculation
+}
+
+// Slide styles with fade transition
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; // Prevents interaction with hidden slides
+  
+  &.active {
+    opacity: 1;
+    position: relative; // This changes positioning during transitions
+    pointer-events: auto; // Allows interaction
+    height: auto; // Allow height to adjust to content
+    z-index: 1; // Ensure active slide is on top
+  }
+  
+  &.inactive {
+    opacity: 0;
+  }
+}
+
+// Image container - updated for responsive behavior
+.slide-content {
+  width: 100%;
+  display: flex;
+  justify-content: center; // Center horizontally
+  align-items: flex-start; // Align to top instead of center
+  margin-bottom: 10px;
+  height: auto; // Let height be determined by content
+  min-height: 0; // Remove minimum height constraint
+}
+
+.slide-image {
+  max-width: 100%; // Fill available width
+  width: 100%; // Force full width
+  height: auto; // Maintain aspect ratio
+  object-fit: contain; // Preserve aspect ratio
+  display: block;
+}
+
+// Footer row containing count and caption
+.slide-footer {
+  display: flex;
+  align-items: flex-start; // Top align items
+  padding: 10px 0;
+  position: relative;
+  height: auto; // Auto height
+  min-height: 60px; // Minimum height for short captions
+  overflow: visible; // Allow long captions to display fully
+  margin-bottom: 20px; // Add space below the slideshow
+  width: 100%;
+  padding-left: $container-padding; // Use container padding variable
+  padding-right: $container-padding; // Use container padding variable
+}
+
+// Slide counter - wider to fit properly
+.slide-count {
+  font-size: 0.9rem;
+  color: $color-accent;
+  padding: 0 15px 0 0;
+  width: 60px; // Wider fixed width
+  flex-shrink: 0; // Prevent shrinking
+  text-align: left;
+}
+
+// Caption container with fade transition
+.caption {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  max-width: calc(100% - 80px); // Adjusted for wider counter
+  text-align: left;
+  font-size: 0.9rem;
+  color: $color-text;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  position: absolute; // Keep absolute for all captions
+  top: 10px;
+  left: calc(60px + #{$container-padding}); // Position after counter
+  height: auto; // Allow captions to have natural height
+  
+  &.active {
+    opacity: 1;
+    position: relative; // Only active caption is in the flow
+    left: 0; // Reset position when active
+    top: 0; // Reset top position as well
+  }
+}
+
+// Navigation buttons
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: $color-text;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.3s;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5); 
+  }
+  
+  &.prev {
+    left: 10px;
+  }
+  
+  &.next {
+    right: 10px;
+  }
+}
+
+// Mobile responsive adjustments
+@media (max-width: $breakpoint-mobile) {
+  .slide-content {
+    height: auto;
+    padding-bottom: 0; // Remove the aspect ratio padding
+    padding: 0; // Remove any padding that might cause overflow
+  }
+  
+  .slide-image {
+    position: static; // Not absolute positioned
+    max-width: 100%; // Ensure image doesn't exceed container width
+    width: auto; // Don't force 100% width which can cause overflow
+    height: auto;
+  }
+  
+  .slide-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  
+  .slide-footer {
+    padding-left: $mobile-padding; // Use mobile padding variable
+    padding-right: $mobile-padding; // Use mobile padding variable
+    box-sizing: border-box; // Include padding in width calculation
+    width: 100%;
+    overflow: visible; // Let captions extend if needed
+    height: auto; // Auto-adjust height
+  }
+  
+  .caption {
+    left: calc(60px + #{$mobile-padding}); // Adjust for mobile
+    max-width: calc(100% - 80px - #{$mobile-padding}); // Ensure caption doesn't overflow
+  }
+  
+  .caption.active {
+    position: relative;
+    height: auto; // Let caption take natural height
+  }
+}
+
+// Add universal box-sizing to all elements
+* {
+  box-sizing: border-box;
+}

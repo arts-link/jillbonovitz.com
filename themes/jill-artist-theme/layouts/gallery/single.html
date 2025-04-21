@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article class="gallery-page">
+  <div class="gallery-content">
+    {{ .Content }}
+  </div>
+  
+  {{ partial "slideshow.html" . }}
+</article>
+{{ end }}
