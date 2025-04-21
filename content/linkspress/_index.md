@@ -1,6 +1,6 @@
 ---
 title: "Links/Press"
-showContentMap: true
+# showContentMap: true
 ---
 
 [Sculpture Magazine article by Scott Rothstein](sculpture-magazine.html)

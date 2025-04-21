@@ -1,6 +1,6 @@
 ---
 title: "Bio"
-showContentMap: true
+# showContentMap: true
 ---
 
 > "In wire I am creating the edges of what is not there; in clay, I am creating the essence of what is".
