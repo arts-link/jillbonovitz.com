@@ -56,7 +56,7 @@ The site uses a custom slideshow component for image galleries.
 
 ### Adding Images to an Existing Gallery
 
-1. Place your new image file in the `static/images/` directory
+1. Place your new image file in the gallery's `images/` directory (e.g., `content/clay/images/`)
 2. Open the appropriate `index.md` file in the section directory
 3. Add a new entry to the `slides` list in the front matter:
 
@@ -75,7 +75,8 @@ Example caption format: `"title, 2023, porcelain clay with glaze, 4\"H x 6\"W"`
 ### Creating a New Gallery
 
 1. Create a new directory under `content/` with an appropriate name
-2. Create an `index.md` file with the following structure:
+2. Create an `images/` subdirectory inside your new gallery directory
+3. Create an `index.md` file with the following structure:
 
 ```yaml
 ---
@@ -92,7 +93,7 @@ slides:
 Any introductory text for your gallery goes here.
 ```
 
-3. Add your images to the `static/images/` directory
+4. Add your images to the gallery's `images/` subdirectory (e.g., `content/new-gallery/images/`)
 
 ## Image Requirements
 
