@@ -1,0 +1,16 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Jill Bonovitz"
+theme = "jill-artist-theme"
+
+[build]
+  writeStats = true
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+# Content Map settings
+[params]
+  defaultShowContentMap = false 

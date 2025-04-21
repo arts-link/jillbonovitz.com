@@ -1,0 +1,2 @@
+# Production-specific configuration
+baseURL = "https://arts-link.github.io/jillbonovitz.com/"
