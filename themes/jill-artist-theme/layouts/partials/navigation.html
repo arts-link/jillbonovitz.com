@@ -14,19 +14,19 @@
       <li class="menu-item {{ if .IsHome }}active{{ end }}">
         <a href="{{ .Site.BaseURL }}">Home</a>
       </li>
-      <li class="menu-item {{ if eq .Section "wire" }}active{{ end }}">
+      <li class="menu-item {{ if in .RelPermalink "/wire/" }}active{{ end }}">
         <a href="{{ .Site.BaseURL }}wire/">Wire</a>
       </li>
-      <li class="menu-item {{ if eq .Section "clay" }}active{{ end }}">
+      <li class="menu-item {{ if in .RelPermalink "/clay/" }}active{{ end }}">
         <a href="{{ .Site.BaseURL }}clay/">Clay</a>
       </li>
-      <li class="menu-item {{ if eq .Section "linkspress" }}active{{ end }}">
+      <li class="menu-item {{ if in .RelPermalink "/linkspress/" }}active{{ end }}">
         <a href="{{ .Site.BaseURL }}linkspress/">Links/Press</a>
       </li>
-      <li class="menu-item {{ if eq .Section "bio" }}active{{ end }}">
+      <li class="menu-item {{ if in .RelPermalink "/bio/" }}active{{ end }}">
         <a href="{{ .Site.BaseURL }}bio/">Bio</a>
       </li>
-      <li class="menu-item {{ if eq .Section "contact" }}active{{ end }}">
+      <li class="menu-item {{ if in .RelPermalink "/contact/" }}active{{ end }}">
         <a href="{{ .Site.BaseURL }}contact/">Contact</a>
       </li>
     </ul>
