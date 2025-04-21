@@ -2,9 +2,10 @@
 <div class="slideshow-container">
   <div class="slideshow">
     {{ range $index, $slide := .Params.slides }}
+    {{ $image := $.Page.Resources.GetMatch $slide.image }}
     <div class="slide {{ if eq $index 0 }}active{{ else }}inactive{{ end }}" data-index="{{ $index }}">
       <div class="slide-content">
-        <img src="{{ $slide.image | absURL }}" alt="{{ $slide.caption }}" class="slide-image">
+        <img src="{{ $image.RelPermalink }}" alt="{{ $slide.caption }}" class="slide-image">
       </div>
     </div>
     {{ end }}
