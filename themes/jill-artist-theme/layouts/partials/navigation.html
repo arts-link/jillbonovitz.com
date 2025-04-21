@@ -1,7 +1,7 @@
 <div class="top-black-line"></div>
 <div class="nav-container">
-  <!-- Site title -->
-  <a href='{{ "/" | absURL }}' class="site-title">JILL BONOVITZ</a>
+  <!-- Site title with direct baseURL -->
+  <a href="{{ .Site.BaseURL }}" class="site-title">JILL BONOVITZ</a>
   
   <!-- Hamburger menu for mobile -->
   <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
@@ -12,22 +12,22 @@
   <nav class="main-navigation">
     <ul id="primary-menu" class="menu">
       <li class="menu-item {{ if .IsHome }}active{{ end }}">
-        <a href='{{ "/" | absURL }}'>Home</a>
+        <a href="{{ .Site.BaseURL }}">Home</a>
       </li>
-      <li class="menu-item {{ if or (eq .Section "wire") (eq .RelPermalink "/wire/") }}active{{ end }}">
-        <a href='{{ "/wire/" | absURL }}'>Wire</a>
+      <li class="menu-item {{ if eq .Section "wire" }}active{{ end }}">
+        <a href="{{ .Site.BaseURL }}wire/">Wire</a>
       </li>
-      <li class="menu-item {{ if or (eq .Section "clay") (eq .RelPermalink "/clay/") }}active{{ end }}">
-        <a href='{{ "/clay/" | absURL }}'>Clay</a>
+      <li class="menu-item {{ if eq .Section "clay" }}active{{ end }}">
+        <a href="{{ .Site.BaseURL }}clay/">Clay</a>
       </li>
-      <li class="menu-item {{ if or (eq .Section "linkspress") (eq .RelPermalink "/linkspress/") }}active{{ end }}">
-        <a href='{{ "/linkspress/" | absURL }}'>Links/Press</a>
+      <li class="menu-item {{ if eq .Section "linkspress" }}active{{ end }}">
+        <a href="{{ .Site.BaseURL }}linkspress/">Links/Press</a>
       </li>
-      <li class="menu-item {{ if or (eq .Section "bio") (eq .RelPermalink "/bio/") }}active{{ end }}">
-        <a href='{{ "/bio/" | absURL }}'>Bio</a>
+      <li class="menu-item {{ if eq .Section "bio" }}active{{ end }}">
+        <a href="{{ .Site.BaseURL }}bio/">Bio</a>
       </li>
-      <li class="menu-item {{ if or (eq .Section "contact") (eq .RelPermalink "/contact/") }}active{{ end }}">
-        <a href='{{ "/contact/" | absURL }}'>Contact</a>
+      <li class="menu-item {{ if eq .Section "contact" }}active{{ end }}">
+        <a href="{{ .Site.BaseURL }}contact/">Contact</a>
       </li>
     </ul>
   </nav>
