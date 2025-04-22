@@ -5,5 +5,47 @@
   </div>
   
   {{ partial "slideshow.html" . }}
+  
+  <!-- Schema.org structured data for artworks -->
+  {{ if .Params.slides }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "CollectionPage",
+    "name": "{{ .Title }} Gallery",
+    "description": "Gallery of {{ .Title }} works by Jill Bonovitz",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {{ range $index, $slide := .Params.slides }}
+        {{ if ne $index 0 }},{{ end }}
+        {
+          "@type": "ListItem",
+          "position": {{ add $index 1 }},
+          "item": {
+            "@type": "VisualArtwork",
+            "name": "{{ with (findRE "^([^,]+)," $slide.caption 1) }}{{ index . 0 | strings.TrimSuffix "," }}{{ else }}{{ $.Title }} Artwork {{ add $index 1 }}{{ end }}",
+            "artform": "{{ $.Title }}",
+            "artMedium": "{{ with (findRE "(porcelain clay|terra cotta clay|earthenware|wire)" $slide.caption 1) }}{{ index . 0 }}{{ else }}{{ $.Title }}{{ end }}",
+            "creator": {
+              "@type": "Person",
+              "name": "Jill Bonovitz"
+            },
+            "dateCreated": "{{ with (findRE "(19|20)\\d{2}" $slide.caption 1) }}{{ index . 0 }}{{ end }}",
+            {{ with (findRE "(\\d+(\\.\\d+)?)\"H" $slide.caption 1) }}
+            "height": "{{ index . 0 | strings.TrimSuffix "\"H" }} inches",
+            {{ end }}
+            {{ with (findRE "(\\d+(\\.\\d+)?)\"( diameter| W)" $slide.caption 1) }}
+            "width": "{{ index . 0 | strings.TrimSuffix "\" diameter" | strings.TrimSuffix "\" W" }} inches",
+            {{ end }}
+            "image": "{{ $.Page.Permalink }}{{ $slide.image }}"
+          }
+        }
+        {{ end }}
+      ]
+    }
+  }
+  </script>
+  {{ end }}
 </article>
 {{ end }}
