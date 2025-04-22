@@ -7,13 +7,8 @@
     padding-bottom: 0.75rem; // Reduced bottom padding
   }
   
-  .site-title {
-    margin-bottom: 0.5rem; // Add more space between title and nav items
-  }
-  
   .main-navigation {
     width: 100%;
-    margin-top: 0.5rem; // Add additional top margin to nav container
     display: block; // Ensure it's visible
     
     ul {
@@ -50,7 +45,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem $mobile-padding; // Reduced padding on mobile
+    padding: 0rem $mobile-padding; // Reduced padding on mobile
   }
   
   .site-content {
