@@ -74,6 +74,22 @@ Example caption format: `"title, 2023, porcelain clay with glaze, 4\"H x 6\"W"`
 
 ### Creating a New Gallery
 
+#### Method 1: Using the Gallery Archetype (Recommended)
+
+The site includes a gallery archetype that provides a template with helpful comments:
+
+1. Create a new gallery using Hugo:
+
+```bash
+hugo new ceramics/index.md --kind gallery
+```
+2. Create an `images` directory for your gallery:
+3. Add your images to this directory
+4. Edit the generated index.md file to update image paths and captions
+
+
+#### Method 2: Manual Creation
+
 1. Create a new directory under `content/` with an appropriate name
 2. Create an `images/` subdirectory inside your new gallery directory
 3. Create an `index.md` file with the following structure:
