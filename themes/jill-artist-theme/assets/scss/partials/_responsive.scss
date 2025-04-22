@@ -114,10 +114,13 @@
       }
     }
   }
-}
+  }
 
 // Small Mobile Breakpoint
 @media screen and (max-width: $breakpoint-small) {
+  .nav-container {
+    padding: 16px $mobile-padding; // Reduced padding on mobile
+  }
   .site-title {
     font-size: 1.25rem;
   }
@@ -138,7 +141,10 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-  
-  // Removed duplicate hamburger menu code since it's now at the mobile breakpoint
-}
 
+  .content-map,
+  .content-map-mobile-toggle {
+    top: 80px; // Move up slightly more on very small screens
+  }
+  
+}

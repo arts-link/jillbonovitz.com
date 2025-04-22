@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .Title }}{{ .Title }} | {{ end }}Jill Bonovitz</title>
-  <meta name="description" content="Jill Bonovitz is an artist who makes sculptures with wire, vessels with clay and installations with both wire and clay. In wire she creates the edges of what is not there and in clay she creates the essence of what is.">
-  
-  <!-- Modern CSS -->
-  <!-- <link rel="stylesheet" href="/css/modern.css"> -->
-  
-  <!-- Optional: Google Fonts instead of Adobe Typekit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
-
-  {{ $styles := resources.Get "scss/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
-</head>
+{{ partial "head.html" . }}
 <body class="{{ if .IsHome }}home{{ end }}">
   <header class="site-header">
     <div class="container">
@@ -37,7 +21,5 @@
     </div>
   </footer>
 
-  <!-- JavaScript with correct Hugo URL handling -->
-  <script src="{{ "js/navigation.js" | absURL }}" defer></script>
 </body>
 </html>

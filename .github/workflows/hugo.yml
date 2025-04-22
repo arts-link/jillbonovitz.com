@@ -54,6 +54,7 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
+            --minify \
             --baseURL "https://arts-link.github.io/jillbonovitz.com/" \
             --environment production
       - name: Upload artifact

@@ -1,0 +1,71 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{- if .Title -}}{{ .Title }} | {{- end -}}Jill Bonovitz</title>
+  <meta name="description" content="{{- .Site.Params.description -}}">
+  
+  <!-- Optional: Google Fonts instead of Adobe Typekit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+
+  {{- $styles := resources.Get "scss/main.scss" | css.Sass | resources.Minify | resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" integrity="{{- $styles.Data.Integrity -}}">
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{- .Site.Params.author -}}",
+      "url": "{{- .Site.BaseURL -}}",
+      "description": "{{- .Site.Params.description -}}"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{- .Site.Params.author -}}",
+      "url": "{{- .Site.BaseURL -}}",
+      "jobTitle": "Artist",
+      "description": "{{- .Site.Params.description -}}",
+      "sameAs": [
+        "https://www.locksart.com/artists/jill-bonovitz"
+      ]
+    }
+  </script>
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="{{- if .Title -}}{{ .Title }}{{- else -}}Jill Bonovitz{{- end -}}">
+  <meta property="og:description" content="{{- .Site.Params.description -}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{- .Permalink -}}">
+  <!-- OG Image with fallback -->
+  {{- $ogImage := "" -}}
+  {{- with .Params.feature -}}
+    {{- $ogImage = . | absURL -}}
+  {{- else -}}
+    {{- $ogImage = "images/og-default.jpg" | absURL -}}
+  {{- end -}}
+  <meta property="og:image" content="{{- $ogImage -}}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{- .Permalink -}}">
+  
+  <!-- Single script tag loading the main index.js file -->
+  {{- $js := resources.Get "js/index.js" -}}
+  {{- if hugo.IsProduction -}}
+    {{- $js = $js | js.Build (dict "minify" true "target" "es2015") | fingerprint -}}
+    <script src="{{- $js.RelPermalink -}}" integrity="{{- $js.Data.Integrity -}}" defer></script>
+  {{- else -}}
+    {{- $js = $js | js.Build (dict "target" "es2015" "sourcemap" "inline") -}}
+    <script src="{{- $js.RelPermalink -}}" defer></script>
+  {{- end -}}
+</head>
