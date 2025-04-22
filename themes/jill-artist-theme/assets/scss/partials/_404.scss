@@ -1,0 +1,104 @@
+// 404 page layout - similar to contact page but with adjustments
+.not-found-page {
+  width: 100%;
+  max-width: 1200px;
+  height: 601px;
+  position: relative;
+  background-size: auto 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  margin: 0 auto 3rem;
+  display: flex;
+  align-items: center; // Center vertically unlike contact page
+  justify-content: flex-end; // Position content on the right side
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+// 404 content styling
+.not-found-content {
+  width: 380px;
+  padding: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.9); // Semi-transparent background
+  text-align: center;
+  margin-right: 10%; // Push a bit away from the right edge
+  
+  h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 300;
+    color: $color-accent;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0 1.5rem;
+    font-weight: 400;
+  }
+  
+  p {
+    margin: 0 0 2rem;
+    line-height: 1.5;
+  }
+}
+
+// Links section
+.not-found-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .home-link {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .link-divider {
+    width: 40px;
+    height: 1px;
+    background-color: $color-text;
+    opacity: 0.3;
+    margin-bottom: 1rem;
+  }
+  
+  .additional-links {
+    display: flex;
+    gap: 1.5rem;
+    
+    a {
+      color: $color-text;
+      text-decoration: none;
+      
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: $breakpoint-tablet) {
+  .not-found-page {
+    background-position: 25% center; // Adjust image position on tablet
+    justify-content: center; // Center content horizontally
+  }
+  
+  .not-found-content {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .not-found-page {
+    height: auto;
+    min-height: 500px;
+    background-position: 30% center;
+  }
+  
+  .not-found-content {
+    width: 85%;
+    max-width: 350px;
+    padding: 2rem;
+  }
+}

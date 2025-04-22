@@ -3,9 +3,23 @@
   <div class="slideshow">
     {{ range $index, $slide := .Params.slides }}
     {{ $image := $.Page.Resources.GetMatch $slide.image }}
+    {{ $imageWebP := $image.Process "webp" }}
+    {{ $imageMobileWebP := $image.Resize "700x webp" }}
+    
     <div class="slide {{ if eq $index 0 }}active{{ else }}inactive{{ end }}" data-index="{{ $index }}">
       <div class="slide-content">
-        <img src="{{ $image.RelPermalink }}" alt="{{ $slide.caption }}" class="slide-image">
+        <picture>
+          <!-- WebP versions -->
+          <source 
+            srcset="{{ $imageMobileWebP.RelPermalink }} 700w, {{ $imageWebP.RelPermalink }} 1200w"
+            sizes="(max-width: 768px) 100vw, 100vw"
+            type="image/webp">
+          <!-- Fallback for browsers that don't support WebP -->
+          <img src="{{ $image.RelPermalink }}" 
+               alt="{{ $slide.caption }}" 
+               class="slide-image"
+               loading="lazy">
+        </picture>
       </div>
     </div>
     {{ end }}

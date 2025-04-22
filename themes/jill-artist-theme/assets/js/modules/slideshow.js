@@ -18,6 +18,9 @@ export function initSlideshow() {
     touchEndX: 0,
     
     init: function() {
+      // Check for hash in URL on page load
+      this.checkUrlHash();
+      
       // Set up click events
       if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
       if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
@@ -30,6 +33,23 @@ export function initSlideshow() {
       
       // Set up touch events
       this.setupTouchEvents();
+      
+      // Handle browser navigation (back/forward buttons)
+      window.addEventListener('hashchange', () => this.checkUrlHash());
+    },
+    
+    // Check URL hash and navigate to correct slide
+    checkUrlHash: function() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#slide')) {
+        const slideIndex = parseInt(hash.replace('#slide', ''), 10);
+        if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < this.totalSlides) {
+          this.showSlide(slideIndex, false); // false = don't update hash again
+        }
+      } else {
+        // No hash or invalid hash, start at first slide
+        this.showSlide(0, true);
+      }
     },
     
     setupTouchEvents: function() {
@@ -60,7 +80,7 @@ export function initSlideshow() {
       }
     },
     
-    showSlide: function(index) {
+    showSlide: function(index, updateHash = true) {
       // Hide all slides
       this.slides.forEach(slide => {
         slide.classList.remove('active');
@@ -68,19 +88,31 @@ export function initSlideshow() {
       });
       
       // Hide all captions
-      this.captions.forEach(caption => {
-        caption.classList.remove('active');
-        caption.classList.add('inactive');
-      });
+      if (this.captions && this.captions.length > 0) {
+        this.captions.forEach(caption => {
+          caption.classList.remove('active');
+          caption.classList.add('inactive');
+        });
+      }
       
       // Show selected slide and caption
       this.slides[index].classList.add('active');
       this.slides[index].classList.remove('inactive');
-      this.captions[index].classList.add('active');
-      this.captions[index].classList.remove('inactive');
+      
+      if (this.captions && this.captions[index]) {
+        this.captions[index].classList.add('active');
+        this.captions[index].classList.remove('inactive');
+      }
       
       // Update counter
-      this.currentSlideEl.textContent = index + 1;
+      if (this.currentSlideEl) {
+        this.currentSlideEl.textContent = index + 1;
+      }
+      
+      // Update URL hash if needed
+      if (updateHash) {
+        history.replaceState(null, null, `#slide${index}`);
+      }
       
       // Update current index
       this.currentIndex = index;

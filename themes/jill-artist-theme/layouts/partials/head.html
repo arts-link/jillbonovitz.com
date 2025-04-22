@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{- if .Title -}}{{ .Title }} | {{- end -}}Jill Bonovitz</title>
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}Jill Bonovitz</title>
   <meta name="description" content="{{- .Site.Params.description -}}">
   
   <!-- Optional: Google Fonts instead of Adobe Typekit -->
@@ -58,6 +58,12 @@
   
   <!-- Canonical URL -->
   <link rel="canonical" href="{{- .Permalink -}}">
+  
+  <!-- Plausible Analytics - only in production and when enabled -->
+  {{- if and hugo.IsProduction (site.Params.enablePlausible | default false) -}}
+  <script defer data-domain="jillbonovitz.com" src="https://plausible.io/js/script.hash.outbound-links.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+  {{- end -}}
   
   <!-- Single script tag loading the main index.js file -->
   {{- $js := resources.Get "js/index.js" -}}
