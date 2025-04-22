@@ -1,13 +1,22 @@
-// Footer styling
+// Footer styling - more subtle and left-aligned
 .site-footer {
-  padding: 2rem 0;
-  border-top: 1px solid $color-light;
-  text-align: center;
-  font-size: 0.9rem;
+  padding: 1.5rem 0;
+  text-align: left; // Changed from center to left
+  font-size: 0.8rem; // Reduced from 0.9rem for more subtlety
+  color: $color-text-light; // More subtle color
+  // Removed border-top to eliminate the HR above it
   
   .container {
     width: 100%;
     max-width: none;
     margin: 0;
+    padding-left: $container-padding; // Add left padding to align with content
+    
+    // Mobile padding adjustment
+    @media (max-width: $breakpoint-mobile) {
+      padding-left: $mobile-padding;
+      padding-right: $mobile-padding;
+    }
   }
+  
 }
