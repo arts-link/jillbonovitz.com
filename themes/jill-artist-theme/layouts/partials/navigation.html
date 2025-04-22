@@ -33,19 +33,3 @@
   </nav>
 </div>
 <div class="nav-divider"></div>
-
-<script>
-  // Mobile menu toggle
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-navigation');
-    
-    if (menuToggle) {
-      menuToggle.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !expanded);
-        mainNav.classList.toggle('active');
-      });
-    }
-  });
-</script>

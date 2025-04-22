@@ -166,30 +166,4 @@
   }
 }
 
-// Homepage mobile menu only kicks in at a smaller breakpoint
-@media (max-width: 599px) {
-  body.home .main-navigation {
-    &:not(.active) {
-      display: none;
-    }
-    
-    &.active {
-      display: block;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.85);
-      z-index: $z-menu;
-      padding: 1rem;
-      
-      ul {
-        flex-direction: column;
-      }
-      
-      li {
-        margin: 0.5rem 0;
-      }
-    }
-  }
-}
+

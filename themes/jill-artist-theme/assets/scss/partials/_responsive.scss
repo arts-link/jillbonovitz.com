@@ -6,6 +6,10 @@
     padding-top: 0.75rem; // Reduced top padding
     padding-bottom: 0.75rem; // Reduced bottom padding
   }
+
+  .site-title {
+    margin-bottom: 0.8rem;
+  }
   
   .main-navigation {
     width: 100%;
@@ -45,13 +49,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0rem $mobile-padding; // Reduced padding on mobile
+    padding: 32px $mobile-padding; // Reduced padding on mobile
   }
   
   .site-content {
     padding-top: 115px; // Adjusted for smaller screens
   }
   
+  .site-title {
+    margin-bottom: .0rem;
+  }
+
   .contact-page {
     width: 100%; // Full width
     height: 600px; // Fixed height as requested
@@ -71,45 +79,13 @@
     margin: 0; // Remove auto margins
   }
   
-  .menu-toggle {
-    display: none; // But don't show the hamburger yet
-  }
-  
-  .main-navigation {
-    display: block; // Still show regular navigation
-  }
-}
-
-// Small Mobile Breakpoint
-@media screen and (max-width: $breakpoint-small) {
-  .site-title {
-    font-size: 1.25rem;
-  }
-  
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  h2 {
-    font-size: 1.25rem;
-  }
-  
-  .site-content {
-    padding-top: 80px; // Adjusted for smaller screens
-  }
-  
-  .page-content {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  // Add hamburger menu toggle at this breakpoint
+  // Show the hamburger menu at mobile breakpoint
   .menu-toggle {
     display: block;
-    right: $mobile-padding; // Match the container's horizontal padding
+    right: $mobile-padding;
   }
   
-  // Add mobile menu styles at this breakpoint
+  // Hide regular navigation and use mobile menu styles
   .main-navigation {
     display: none;
     position: absolute;
@@ -138,5 +114,31 @@
       }
     }
   }
+}
+
+// Small Mobile Breakpoint
+@media screen and (max-width: $breakpoint-small) {
+  .site-title {
+    font-size: 1.25rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  .site-content {
+    padding-top: 80px; // Adjusted for smaller screens
+  }
+  
+  .page-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  // Removed duplicate hamburger menu code since it's now at the mobile breakpoint
 }
 
