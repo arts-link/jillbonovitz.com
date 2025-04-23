@@ -6,6 +6,9 @@
   margin: 0 auto 2rem;
   overflow: hidden; // Prevent both horizontal AND vertical scrolling
   box-sizing: border-box; // Include padding in width calculation
+
+  // Pre-reserve space for slideshow - critical for CLS
+  min-height: 600px; // Set a minimum height that works for most screens
 }
 
 // Slideshow
@@ -31,15 +34,18 @@
     pointer-events: auto; // Allows interaction
     height: auto; // Allow height to adjust to content
     z-index: 1; // Ensure active slide is on top
+    display: block;
   }
   
   &.inactive {
     opacity: 0;
+    display: none;
   }
 }
 
 // Image container - updated for responsive behavior
 .slide-content {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center; // Center horizontally
@@ -47,12 +53,25 @@
   margin-bottom: 10px;
   height: auto; // Let height be determined by content
   min-height: 0; // Remove minimum height constraint
+
+  // Method 1: Fixed aspect ratio (modern browsers)
+  aspect-ratio: 3/2; // Use default ratio that matches most images
+  
+  // Method 2: Padding trick (for older browsers)
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 66.66%; // 2:3 aspect ratio (matches most images)
+  }
 }
 
 .slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   max-width: 100%; // Fill available width
-  width: 100%; // Force full width
-  height: auto; // Maintain aspect ratio
+  width: 100% !important; // Force width
+  height: 100% !important; // Force height
   object-fit: contain; // Preserve aspect ratio
   display: block;
 }
