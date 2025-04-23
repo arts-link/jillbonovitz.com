@@ -1,8 +1,20 @@
 {{ define "main" }}
-{{ $bgImage := .Resources.GetMatch "images/bonovitz_0765-wall-jill-web.jpg" }}
-<article class="contact-page" style="background-image: url('{{ $bgImage.RelPermalink }}');">
-  <div class="contact-content">
-    {{ .Content }}
-  </div>
-</article>
+{{ $bgImageSrc := .Resources.GetMatch "images/bonovitz_0765-wall-jill-web.jpg" }}
+
+{{ if $bgImageSrc }}
+  <!-- Resize to exact height, preserving aspect ratio -->
+  {{ $bgImagePng := $bgImageSrc.Resize (printf "x601 png") }}
+
+  <article class="contact-page" style="background-image: url('{{ $bgImagePng.RelPermalink }}'); ">
+    <div class="contact-content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ else }}
+  <article class="contact-page">
+    <div class="contact-content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
 {{ end }}
