@@ -1,0 +1,41 @@
+/* filepath: /Volumes/wanderer/dev/solo/jillbonovitz.com/themes/jill-artist-theme/assets/scss/partials/_accessibility.scss */
+/* Keyboard focus styles */
+:focus {
+  outline: 3px solid $color-accent; /* Use your $color-accent */
+  outline-offset: 3px;
+}
+
+/* For buttons that already have strong visual boundaries */
+button:focus, 
+.slide-nav:focus {
+  outline-color: $color-accent; /* Use your $color-active */
+}
+
+/* Only show focus styles for keyboard navigation, not mouse clicks */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid $color-accent; /* Use your $color-active */  
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  padding: 10px 15px;
+  background-color: $color-bg;
+  color: $color-text;
+  text-decoration: none;
+  border: 2px solid $color-accent;
+  transition: top 0.3s;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
