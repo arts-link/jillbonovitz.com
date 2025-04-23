@@ -3,13 +3,14 @@
 {{ partial "head.html" . }}
 <body class="{{ if .IsHome }}home{{ end }}">
   <header class="site-header">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="container">
       <!-- Site title moved to navigation.html -->
       {{ partial "navigation.html" . }}
     </div>
   </header>
   
-  <main class="site-content">
+  <main class="site-content" id="main-content">
     <div class="container">
       {{ block "main" . }}{{ end }}
     </div>

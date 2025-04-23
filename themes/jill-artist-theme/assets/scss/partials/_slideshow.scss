@@ -75,7 +75,7 @@
 // Slide counter - wider to fit properly
 .slide-count {
   font-size: 0.9rem;
-  color: $color-accent;
+  color: $color-text;
   padding: 0 15px 0 0;
   width: 60px; // Wider fixed width
   flex-shrink: 0; // Prevent shrinking
@@ -147,6 +147,7 @@
     max-width: 100%; // Ensure image doesn't exceed container width
     width: auto; // Don't force 100% width which can cause overflow
     height: auto;
+    aspect-ratio: attr(width) / attr(height);
   }
   
   .slide-nav {

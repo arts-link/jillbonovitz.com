@@ -3,22 +3,46 @@
   <div class="slideshow">
     {{ range $index, $slide := .Params.slides }}
     {{ $image := $.Page.Resources.GetMatch $slide.image }}
-    {{ $imageWebP := $image.Process "webp" }}
-    {{ $imageMobileWebP := $image.Resize "700x webp" }}
+    
+    <!-- Generate various sized images for different devices -->
+    {{ $imageXs := $image.Resize "300x" }}
+    {{ $imageSm := $image.Resize "500x" }}
+    {{ $imageMd := $image.Resize "700x" }}
+    {{ $imageLg := $image.Resize "1080x" }}
+    {{ $imageXl := $image.Resize "1280x" }}
+    
+    <!-- WebP versions -->
+    {{ $imageXsWebP := $imageXs.Process "webp" }}
+    {{ $imageSmWebP := $imageSm.Process "webp" }}
+    {{ $imageMdWebP := $imageMd.Process "webp" }}
+    {{ $imageLgWebP := $imageLg.Process "webp" }}
+    {{ $imageXlWebP := $imageXl.Process "webp" }}
     
     <div class="slide {{ if eq $index 0 }}active{{ else }}inactive{{ end }}" data-index="{{ $index }}">
       <div class="slide-content">
         <picture>
-          <!-- WebP versions -->
+          <!-- WebP versions with more size options -->
           <source 
-            srcset="{{ $imageMobileWebP.RelPermalink }} 700w, {{ $imageWebP.RelPermalink }} 1200w"
-            sizes="(max-width: 768px) 100vw, 100vw"
+            srcset="{{ $imageXsWebP.RelPermalink }} 300w, 
+                    {{ $imageSmWebP.RelPermalink }} 500w, 
+                    {{ $imageMdWebP.RelPermalink }} 700w, 
+                    {{ $imageLgWebP.RelPermalink }} 1080w, 
+                    {{ $imageXlWebP.RelPermalink }} 1280w"
+            sizes="(min-width: 1280px) 1280px, 100vw"
             type="image/webp">
           <!-- Fallback for browsers that don't support WebP -->
           <img src="{{ $image.RelPermalink }}" 
-               alt="{{ $slide.caption }}" 
+               srcset="{{ $imageXs.RelPermalink }} 300w,
+                       {{ $imageSm.RelPermalink }} 500w,
+                       {{ $imageMd.RelPermalink }} 700w,
+                       {{ $imageLg.RelPermalink }} 1080w,
+                       {{ $imageXl.RelPermalink }} 1280w"
+               sizes="(min-width: 1280px) 1280px, 100vw"
+               width="{{ $image.Width }}" 
+               height="{{ $image.Height }}"
+               alt="{{ with $slide.caption }}{{ . }}{{ else }}Artwork by Jill Bonovitz{{ end }}" 
                class="slide-image"
-               loading="lazy">
+               {{ if ne $index 0 }}loading="lazy"{{ end }}>
         </picture>
       </div>
     </div>
