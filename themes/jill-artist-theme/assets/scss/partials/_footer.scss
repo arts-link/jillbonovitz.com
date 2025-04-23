@@ -26,15 +26,15 @@
   // Improved link styling for accessibility
   a {
     text-decoration: underline; // Add underline for visual distinction
-    color: $color-visited; // Use your site's red color or another accessible color
+    color: $color-active; // Use your site's red color or another accessible color
     
     &:hover, &:focus {
-      color: darken($color-visited, 10%); // Darken on hover/focus for more interactivity
+      color: darken($color-active, 10%); // Darken on hover/focus for more interactivity
       text-decoration-thickness: 2px; // Thicker underline on hover/focus
     }
     
     &:focus {
-      outline: 2px solid $color-visited; // Clear focus indicator
+      outline: 2px solid $color-active; // Clear focus indicator
       outline-offset: 2px;
     }
   }
