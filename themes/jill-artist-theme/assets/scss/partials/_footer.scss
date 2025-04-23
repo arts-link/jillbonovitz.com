@@ -1,9 +1,13 @@
 // Footer styling - more subtle and left-aligned
 .site-footer {
-  padding: 1.5rem 0;
+  min-height: 50px; // Set a minimum height
+  padding: 1rem 0;
+  margin-top: auto; // Push to bottom 
+  width: 100%;
+  box-sizing: border-box;
   text-align: left; // Changed from center to left
   font-size: 0.8rem; // Reduced from 0.9rem for more subtlety
-  color: $color-text-light; // More subtle color
+  color: $color-text; // More subtle color
   // Removed border-top to eliminate the HR above it
   
   .container {
