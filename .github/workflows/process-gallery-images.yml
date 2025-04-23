@@ -1,0 +1,120 @@
+name: Process Gallery Images
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  process-images:
+    if: ${{ github.event.comment.body == '/process-images' && contains(github.event.issue.title, 'Upload images for gallery:') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Get gallery folder name
+        id: gallery-folder
+        run: |
+          TITLE="${{ github.event.issue.title }}"
+          FOLDER=$(echo "$TITLE" | sed 's/Upload images for gallery: //')
+          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+      
+      - name: Download uploaded images
+        id: download-images
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            
+            // Get all comments on the issue
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber
+            });
+            
+            const fs = require('fs');
+            const path = require('path');
+            const https = require('https');
+            
+            // Create image directory if it doesn't exist
+            const imageDir = `content/${{ steps.gallery-folder.outputs.folder }}/images`;
+            if (!fs.existsSync(imageDir)) {
+              fs.mkdirSync(imageDir, { recursive: true });
+            }
+            
+            // Track all images for frontmatter
+            const images = [];
+            
+            // Loop through comments for attachments
+            for (const comment of comments.data) {
+              const regex = /!\[.*?\]\((.*?)\)/g;
+              let match;
+              
+              while ((match = regex.exec(comment.body)) !== null) {
+                const imageUrl = match[1];
+                const filename = path.basename(imageUrl);
+                
+                // Skip if not jpg or png
+                if (!filename.match(/\.(jpg|jpeg|png)$/i)) continue;
+                
+                // Download the image
+                const imagePath = path.join(imageDir, filename);
+                await new Promise((resolve, reject) => {
+                  https.get(imageUrl, response => {
+                    const fileStream = fs.createWriteStream(imagePath);
+                    response.pipe(fileStream);
+                    fileStream.on('finish', () => {
+                      fileStream.close();
+                      images.push({
+                        id: images.length + 1,
+                        filename: filename,
+                        path: `images/${filename}`
+                      });
+                      resolve();
+                    });
+                  }).on('error', reject);
+                });
+              }
+            }
+            
+            // Update frontmatter
+            const indexPath = `content/${{ steps.gallery-folder.outputs.folder }}/index.md`;
+            let content = fs.readFileSync(indexPath, 'utf8');
+            
+            // Create slides content
+            let slidesContent = 'slides:\n';
+            for (const image of images) {
+              slidesContent += `  - id: ${image.id}\n`;
+              slidesContent += `    image: "${image.path}"\n`;
+              slidesContent += `    caption: ""\n\n`;
+            }
+            
+            // Replace frontmatter section
+            content = content.replace(/slides:.*?---/s, `${slidesContent}---`);
+            fs.writeFileSync(indexPath, content);
+            
+            return { total_images: images.length };
+            
+      - name: Create PR with uploaded images
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Add images to gallery: ${{ steps.gallery-folder.outputs.folder }}"
+          title: "Add images to gallery: ${{ steps.gallery-folder.outputs.folder }}"
+          body: |
+            This PR adds ${{ fromJSON(steps.download-images.outputs.result).total_images }} images to the "${{ steps.gallery-folder.outputs.folder }}" gallery.
+            
+            The frontmatter has been updated with entries for each image. After merging, you should edit the captions in the index.md file.
+          branch: gallery-images/${{ steps.gallery-folder.outputs.folder }}
+          delete-branch: true
+      
+      - name: Close upload issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
