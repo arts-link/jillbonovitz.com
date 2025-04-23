@@ -1,0 +1,51 @@
+name: Create New Gallery
+
+on:
+  workflow_dispatch:
+    inputs:
+      gallery_name:
+        description: 'Gallery name (e.g. "Summer Exhibition")'
+        required: true
+      gallery_folder:
+        description: 'Folder name (e.g. "summer-exhibition")'
+        required: true
+
+jobs:
+  create-gallery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Create gallery structure
+        run: |
+          # Create gallery directory
+          mkdir -p content/${{ github.event.inputs.gallery_folder }}/images
+          
+          # Copy and modify archetype
+          cp archetypes/gallery.md content/${{ github.event.inputs.gallery_folder }}/index.md
+          
+          # Update title in frontmatter
+          sed -i "s/title: \"{{ replace .Name \"-\" \" \" | title }}\"/title: \"${{ github.event.inputs.gallery_name }}\"/" content/${{ github.event.inputs.gallery_folder }}/index.md
+          
+          # Clear example slides
+          sed -i '/^slides:/,/^---/c\slides:\n---' content/${{ github.event.inputs.gallery_folder }}/index.md
+      
+      - name: Create PR for initial gallery structure
+        id: create-pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Create new gallery: ${{ github.event.inputs.gallery_name }}"
+          title: "Create new gallery: ${{ github.event.inputs.gallery_name }}"
+          body: |
+            This PR creates a new gallery titled "${{ github.event.inputs.gallery_name }}".
+            
+            ## Next Steps:
+            1. After merging this PR, go to the "Upload Images" workflow
+            2. Select this gallery and upload your images
+            3. The workflow will automatically create entries for each image
+          branch: gallery/${{ github.event.inputs.gallery_folder }}
+          delete-branch: true
+          
+      - name: Output PR details
+        run: echo "Gallery creation PR created at ${{ steps.create-pr.outputs.pull-request-url }}"
