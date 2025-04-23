@@ -1,7 +1,7 @@
 <div class="top-black-line"></div>
 <div class="nav-container">
-  <!-- Site title with direct baseURL -->
-  <a href="{{ .Site.BaseURL }}" class="site-title">JILL BONOVITZ</a>
+  <!-- Site title with root path -->
+  <a href="/" class="site-title">JILL BONOVITZ</a>
   
   <!-- Hamburger menu for mobile -->
   <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
@@ -12,22 +12,22 @@
   <nav class="main-navigation">
     <ul id="primary-menu" class="menu">
       <li class="menu-item {{ if .IsHome }}active{{ end }}">
-        <a href="{{ .Site.BaseURL }}">Home</a>
+        <a href="/">Home</a>
       </li>
       <li class="menu-item {{ if in .RelPermalink "/wire/" }}active{{ end }}">
-        <a href="{{ .Site.BaseURL }}wire/">Wire</a>
+        <a href="/wire/">Wire</a>
       </li>
       <li class="menu-item {{ if in .RelPermalink "/clay/" }}active{{ end }}">
-        <a href="{{ .Site.BaseURL }}clay/">Clay</a>
+        <a href="/clay/">Clay</a>
       </li>
       <li class="menu-item {{ if in .RelPermalink "/linkspress/" }}active{{ end }}">
-        <a href="{{ .Site.BaseURL }}linkspress/">Links/Press</a>
+        <a href="/linkspress/">Links/Press</a>
       </li>
       <li class="menu-item {{ if in .RelPermalink "/bio/" }}active{{ end }}">
-        <a href="{{ .Site.BaseURL }}bio/">Bio</a>
+        <a href="/bio/">Bio</a>
       </li>
       <li class="menu-item {{ if in .RelPermalink "/contact/" }}active{{ end }}">
-        <a href="{{ .Site.BaseURL }}contact/">Contact</a>
+        <a href="/contact/">Contact</a>
       </li>
     </ul>
   </nav>

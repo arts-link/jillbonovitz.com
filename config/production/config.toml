@@ -1,5 +1,5 @@
 # Production-specific configuration
-baseURL = "https://arts-link.github.io/jillbonovitz.com/"
+baseURL = "https://jillbonovitz.arts-link.com"
 
 [params]
   enablePlausible = true  # Set to false to disable even in production
