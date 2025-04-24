@@ -62,9 +62,6 @@ slides:
     image: "images/bonovitz_1168-wire-basket-web.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
     
-  - id: 16
-    image: "images/6-7-combined-10-20-17.jpg"
-    caption: "2017, wire and paint, 33 x 23 x 23\", detail on right"
     
   - id: 17
     image: "images/bonovitz_0882-web.jpg"
