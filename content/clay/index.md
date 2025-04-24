@@ -39,17 +39,17 @@ slides:
     image: "images/bonovitz_0845-web.jpg"
     caption: "2013, porcelain clay with glaze, 3-1/2 \"H x 6-1/2\" W"
   - id: 13
-    image: "images/bonovitz_0822-web.jpg"
-    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\"H"
-  - id: 14
-    image: "images/bonovitz_0807-web.jpg"
-    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\"H"
-  - id: 15
-    image: "images/bonovitz_0831-web.jpg"
-    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\"H"
-  - id: 16
     image: "images/bonovitz-hemitage-web.jpg"
     caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H, Collection of the Hermitage State Museum, St Petersburg, Russia"
+  - id: 14
+    image: "images/bonovitz_0822-web.jpg"
+    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\"H"
+  - id: 15
+    image: "images/bonovitz_0807-web.jpg"
+    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\"H"
+  - id: 16
+    image: "images/bonovitz_0831-web.jpg"
+    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\"H"
   - id: 17
     image: "images/bonovitz_1187-web.jpg"
     caption: "2015, terra cotta clay with underglaze, 5\" - 10\" h x 4\" - 8\" w"
