@@ -1,6 +1,6 @@
 # Jill Bonovitz Website
 
-A portfolio website for artist Jill Bonovitz built with Hugo static site generator.
+The portfolio website for artist Jill Bonovitz built with Hugo static site generator.
 
 ## Technologies Used
 
