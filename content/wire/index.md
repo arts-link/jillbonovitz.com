@@ -69,7 +69,7 @@ slides:
     
   - id: 18
     image: "images/bonovitz_1115-web.jpg"
-    caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University, Philadelphia, PA"
+    caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA"
 
   - id: 26
     image: "images/comcast.jpg"
