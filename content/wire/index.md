@@ -90,6 +90,10 @@ slides:
   - id: 24
     image: "images/red-earmuffs_BON0099.jpg"
     caption: "1.5\"w and 3.5\" high, felt and wire"
+
+  - id: 25
+    image: "images/red-ear_BON0106.jpg"
+    caption: "1.5\"w and 1.5\" high, felt and wire"
     
   - id: 23
     image: "images/bonovitz-flower-wall.jpg"
