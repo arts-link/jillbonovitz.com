@@ -87,7 +87,7 @@ slides:
     image: "images/bonovitz-moore-6.jpg"
     caption: "4\"w and 2.5\" high, felt and wire"
 
-- id: 24
+  - id: 24
     image: "red-earmuffs_BON0099.jpg"
     caption: "1.5\"w and 3.5\" high, felt and wire"
     
