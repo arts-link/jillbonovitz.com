@@ -88,7 +88,7 @@ slides:
     caption: "4\"w and 2.5\" high, felt and wire"
 
   - id: 24
-    image: "red-earmuffs_BON0099.jpg"
+    image: "images/red-earmuffs_BON0099.jpg"
     caption: "1.5\"w and 3.5\" high, felt and wire"
     
   - id: 23
