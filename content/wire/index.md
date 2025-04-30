@@ -2,13 +2,13 @@
 title: "Wire Sculptures"
 type: "gallery"
 slides:
-  - id: 1
-    image: "images/bonovitz_1144-web.jpg"
-    caption: "2015/2016, wire, berry, and clay, 1.5 x 2\""
-    
   - id: 2
     image: "images/bonovitz_0735-web.jpg"
     caption: "2015/2016, wire, paint, clay, and plant material, dimensions variable"
+    
+  - id: 1
+    image: "images/bonovitz_1144-web.jpg"
+    caption: "2015/2016, wire, berry, and clay, 1.5 x 2\""
     
   - id: 3
     image: "images/bonovitz_0740-web.jpg"
