@@ -70,7 +70,11 @@ slides:
   - id: 18
     image: "images/bonovitz_1115-web.jpg"
     caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University, Philadelphia, PA"
-    
+
+  - id: 26
+    image: "images/comcast.jpg"
+    caption: "Journey, 2017, wire, 3/'9/" x 2\'"
+
   - id: 19
     image: "images/bonovitz-moore-signage.jpg"
     caption: "Moore College of Art and Design, Visionary Woman Award, 2019"
