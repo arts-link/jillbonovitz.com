@@ -3,6 +3,16 @@ export function initContentMap() {
   const contentMap = document.getElementById('content-map');
   if (!contentMap) return; // Exit early if content map doesn't exist
   
+  // Store handlers for cleanup
+  const handlers = {
+    mapToggleClick: null,
+    mobileToggleClick: null,
+    contentMapHeaderClick: null,
+    documentClick: null,
+    h3ToggleClicks: [],
+    mapLinkClicks: []
+  };
+  
   // Add content map class to body
   document.body.classList.add('has-content-map');
   
@@ -17,7 +27,7 @@ export function initContentMap() {
   contentMap.classList.remove('collapsed');
   
   // Main content map toggle for desktop
-  mapToggle.addEventListener('click', function() {
+  handlers.mapToggleClick = function() {
     // On desktop, toggle collapsed state
     if (window.innerWidth >= 900) {
       contentMap.classList.toggle('collapsed');
@@ -36,24 +46,27 @@ export function initContentMap() {
       mobileToggle.classList.remove('active');
       mobileToggle.setAttribute('aria-expanded', 'false');
     }
-  });
+  };
+  mapToggle.addEventListener('click', handlers.mapToggleClick);
   
   // Mobile toggle
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', function() {
+    handlers.mobileToggleClick = function() {
       contentMap.classList.toggle('active');
       mobileToggle.classList.toggle('active');
       const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
       mobileToggle.setAttribute('aria-expanded', !isExpanded);
-    });
+    };
+    mobileToggle.addEventListener('click', handlers.mobileToggleClick);
   }
   
   // H3 accordions - Add null check before forEach
   const h3Toggles = contentMap.querySelectorAll('.h3-toggle');
   if (h3Toggles && h3Toggles.length > 0) {
-    h3Toggles.forEach(toggle => {
+    h3Toggles.forEach((toggle, index) => {
       if (!toggle) return;
-      toggle.addEventListener('click', function() {
+      
+      handlers.h3ToggleClicks[index] = function() {
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', !expanded);
         
@@ -64,27 +77,32 @@ export function initContentMap() {
         } else {
           list.removeAttribute('hidden');
         }
-      });
+      };
+      
+      toggle.addEventListener('click', handlers.h3ToggleClicks[index]);
     });
   }
   
   // Close mobile menu when clicking a link - Add null check before forEach
   const mapLinks = contentMap.querySelectorAll('.map-link');
   if (mapLinks && mapLinks.length > 0 && mobileToggle) {
-    mapLinks.forEach(link => {
+    mapLinks.forEach((link, index) => {
       if (!link) return;
-      link.addEventListener('click', function() {
+      
+      handlers.mapLinkClicks[index] = function() {
         if (window.innerWidth < 900) {
           contentMap.classList.remove('active');
           mobileToggle.classList.remove('active');
           mobileToggle.setAttribute('aria-expanded', 'false');
         }
-      });
+      };
+      
+      link.addEventListener('click', handlers.mapLinkClicks[index]);
     });
   }
   
   // NEW: Close when clicking outside of content map (mobile only)
-  document.addEventListener('click', function(event) {
+  handlers.documentClick = function(event) {
     // Only in mobile mode
     if (window.innerWidth >= 900) return;
     
@@ -98,11 +116,12 @@ export function initContentMap() {
       mobileToggle.classList.remove('active');
       mobileToggle.setAttribute('aria-expanded', 'false');
     }
-  });
+  };
+  document.addEventListener('click', handlers.documentClick);
   
   // NEW: Close when clicking on the content map header in mobile mode
   if (contentMapHeader) {
-    contentMapHeader.addEventListener('click', function(event) {
+    handlers.contentMapHeaderClick = function(event) {
       // Only in mobile mode
       if (window.innerWidth >= 900) return;
       
@@ -113,6 +132,40 @@ export function initContentMap() {
       contentMap.classList.remove('active');
       mobileToggle.classList.remove('active');
       mobileToggle.setAttribute('aria-expanded', 'false');
-    });
+    };
+    contentMapHeader.addEventListener('click', handlers.contentMapHeaderClick);
   }
+  
+  // Add cleanup function
+  return function cleanup() {
+    mapToggle.removeEventListener('click', handlers.mapToggleClick);
+    
+    if (mobileToggle) {
+      mobileToggle.removeEventListener('click', handlers.mobileToggleClick);
+    }
+    
+    if (contentMapHeader) {
+      contentMapHeader.removeEventListener('click', handlers.contentMapHeaderClick);
+    }
+    
+    document.removeEventListener('click', handlers.documentClick);
+    
+    // Clean up h3 toggle handlers
+    if (h3Toggles && h3Toggles.length > 0) {
+      h3Toggles.forEach((toggle, index) => {
+        if (toggle && handlers.h3ToggleClicks[index]) {
+          toggle.removeEventListener('click', handlers.h3ToggleClicks[index]);
+        }
+      });
+    }
+    
+    // Clean up map link handlers
+    if (mapLinks && mapLinks.length > 0) {
+      mapLinks.forEach((link, index) => {
+        if (link && handlers.mapLinkClicks[index]) {
+          link.removeEventListener('click', handlers.mapLinkClicks[index]);
+        }
+      });
+    }
+  };
 }

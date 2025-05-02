@@ -26,16 +26,13 @@ export function initSlideshow() {
       if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
       
       // Set up keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') this.prevSlide();
-        if (e.key === 'ArrowRight') this.nextSlide();
-      });
+      document.addEventListener('keydown', this.handleKeydown);
       
       // Set up touch events
       this.setupTouchEvents();
       
       // Handle browser navigation (back/forward buttons)
-      window.addEventListener('hashchange', () => this.checkUrlHash());
+      window.addEventListener('hashchange', this.handleHashChange);
     },
     
     // Check URL hash and navigate to correct slide
@@ -65,7 +62,7 @@ export function initSlideshow() {
       }, {passive: true});
     },
     
-    handleSwipe: function() {
+    handleSwipe: debounce(function() {
       const threshold = 50; // Minimum distance for a swipe
       const diff = this.touchStartX - this.touchEndX;
       
@@ -78,7 +75,7 @@ export function initSlideshow() {
         // Swiped right - go to previous slide
         this.prevSlide();
       }
-    },
+    }, 100),
     
     showSlide: function(index, updateHash = true) {
       // Hide all slides
@@ -109,9 +106,16 @@ export function initSlideshow() {
         this.currentSlideEl.textContent = index + 1;
       }
       
-      // Update URL hash if needed
+      // Update URL hash if needed - SAFER METHOD
       if (updateHash) {
-        history.replaceState(null, null, `#slide${index}`);
+        try {
+          // Check if we're still on the same page before updating history
+          if (document.body.contains(this.slides[index])) {
+            history.replaceState(null, null, `#slide${index}`);
+          }
+        } catch (e) {
+          console.warn('Could not update URL hash:', e);
+        }
       }
       
       // Update current index
@@ -128,9 +132,33 @@ export function initSlideshow() {
       let newIndex = this.currentIndex - 1;
       if (newIndex < 0) newIndex = this.totalSlides - 1;
       this.showSlide(newIndex);
+    },
+
+    cleanup: function() {
+      document.removeEventListener('keydown', this.handleKeydown);
+      window.removeEventListener('hashchange', this.handleHashChange);
     }
   };
-  
+
+  // Store bound event handlers for later cleanup
+  slideshow.handleKeydown = (e) => {
+    if (e.key === 'ArrowLeft') slideshow.prevSlide();
+    if (e.key === 'ArrowRight') slideshow.nextSlide();
+  };
+
+  slideshow.handleHashChange = () => slideshow.checkUrlHash();
+
   // Initialize the slideshow
   slideshow.init();
+
+  // Return the slideshow object to allow cleanup from outside
+  return slideshow;
+}
+
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
 }
