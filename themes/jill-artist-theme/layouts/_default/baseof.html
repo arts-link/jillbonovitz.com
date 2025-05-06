@@ -15,12 +15,14 @@
       {{ block "main" . }}{{ end }}
     </div>
   </main>
-  
+
+  {{ if not .IsHome }}
   <footer class="site-footer">
     <div class="container">
-      <p>Software: <a href="http://www.arts-link.com/" target="_blank">arts-link.com</a> | Design: <a href="http://www.avayoudesign.com/" target="_blank">avayoudesign.com</a> | Photography: <a href="http://www.josephhu.net/" target="_blank">Joseph Hu</a> | {{ now.Format "2006" }} All rights reserved</p>
+      <p>© {{ now.Format "2006" }} Jill Bonovitz. All rights reserved | Software by <a href="http://www.arts-link.com/" target="_blank">arts-link.com</a></p>
     </div>
   </footer>
+  {{ end }}
 
 </body>
 </html>
