@@ -1,14 +1,21 @@
-/* filepath: /Volumes/wanderer/dev/solo/jill/muse-site/www/jillbonovitz.com/assets/scss/main.scss */
-// Import all partials
-@import "partials/variables";
-@import "partials/typography";
-@import "partials/layout";
-@import "partials/header";
-@import "partials/content";
-@import "partials/contact";
-@import "partials/home";
-@import "partials/footer";
-@import "partials/responsive";
-@import "partials/slideshow";
-@import "partials/404";
-@import "partials/accessibility";
+// 1. Global Foundation
+@import "partials/variables";      // Variables should always be first
+@import "partials/typography";     // General typography rules
+
+// 2. Layout & Structure
+@import "partials/layout";         // Base layout structure
+@import "partials/header";         // Header component
+@import "partials/footer";         // Footer component
+@import "partials/content";        // General content styles
+
+// 3. Components
+@import "partials/slideshow";      // Component that could be used on multiple pages
+
+// 4. Page-Specific Styles
+@import "partials/home";           // Home page styles
+@import "partials/contact";        // Contact page styles
+@import "partials/404";            // 404 page styles
+
+// 5. Utilities & Overrides
+@import "partials/accessibility";  // Accessibility helpers
+@import "partials/responsive";     // Responsive styles should be last to override others

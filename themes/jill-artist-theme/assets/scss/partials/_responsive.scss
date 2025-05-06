@@ -122,7 +122,8 @@
     padding: 16px $mobile-padding; // Reduced padding on mobile
   }
   .site-title {
-    font-size: 1.25rem;
+    font-size: 26px;
+    letter-spacing: 3px;
   }
   
   h1 {
@@ -147,4 +148,39 @@
     top: 80px; // Move up slightly more on very small screens
   }
   
+  // Add centered navigation with divider lines
+  .main-navigation {
+    &.active {
+      padding: 0; // Remove padding to allow full-width lines
+      
+      ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0; // Remove padding
+      }
+      
+      li {
+        margin: 0;
+        width: 100%; // Full width for divider lines
+        text-align: center; 
+        position: relative; // For the divider positioning
+        
+        &:not(:last-child):after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: $color-black;
+        }
+      }
+      
+      a {
+        display: block;
+        font-size: 1.1rem;
+        padding: 0.95rem 0;
+      }
+    }
+  }
 }

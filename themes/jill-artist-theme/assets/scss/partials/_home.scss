@@ -21,7 +21,7 @@ body.home .site-content {
 // Ensure transparent background for homepage navigation
 body.home .nav-container {
   background-color: transparent;
-  padding-top: 0.2rem;
+  padding-top: 0.9rem;
   padding-bottom: 0.0rem;
 }
 
@@ -30,8 +30,26 @@ body.home .nav-divider {
   display: none;
 }
 
+
 // Home page specific navigation layout
 body.home {
+  // Make sure text is legible - BUT DON'T OVERRIDE SITE TITLE COLOR
+  .main-navigation a {
+    color: $color-black;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+
+  // Add this more specific rule for the site title
+  a.site-title {
+    color: $color-bg; 
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.6); // Dark shadow for white text
+  }
+  
+  // Keep active menu items in the accent color
+  .main-navigation .active a {
+    color: $color-black;
+  }
+
   // Desktop layout - title below navigation (> 966px)
   @media (min-width: 966px) {
     .nav-container {
@@ -94,52 +112,41 @@ body.home {
   
   // Mobile styles - now starts at 600px instead of 768px
   @media (max-width: 599px) {
-    .site-title {
-      font-size: 30px;
-      line-height: 34px;
-      letter-spacing: 2px;
-    }
-    
+    a.site-title {
+      color: $color-accent;
+      text-shadow: none; // Remove shadow on mobile
+      font-size: 26px;
+      letter-spacing: 3px;
+    } 
+
     .menu-toggle {
       display: block !important;
-      top: 20px;
+      top: 30px;
     }
     
-    // Standard mobile menu behavior
     .main-navigation {
       display: none;
       
       &.active {
         display: block;
       }
+      
+      a {
+        text-shadow: none; // Remove shadow on mobile navigation text
+      }
     }
   }
   
-  // Make sure text is legible - BUT DON'T OVERRIDE SITE TITLE COLOR
-  .main-navigation a {
-    color: $color-text;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
-  }
-
-  // Add this more specific rule for the site title
-  a.site-title {
-    color: $color-bg !important; // Use important just for this override
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.6); // Dark shadow for white text
-  }
   
-  // Keep active menu items in the accent color
-  .main-navigation .active a {
-    color: $color-active;
-  }
 }
 
 // Additional responsive adjustments for home page
 @media (max-width: 768px) {
-  .home-background {
+  .ground {
     background-position: center;
   }
   
   body.home .site-content {
-    min-height: 65vh;
+    min-height: 85vh;
   }
 }
