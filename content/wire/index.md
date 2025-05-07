@@ -73,7 +73,7 @@ slides:
 
   - id: 26
     image: "images/comcast.jpg"
-    caption: "Journey, 2017, wire, 3'9\" x 2'"
+    caption: "Journey, 2017, wire, 3'9\" x 2', Collection Comcast Technology Center, Philadelphia, PA"
 
   - id: 19
     image: "images/bonovitz-moore-signage.jpg"
