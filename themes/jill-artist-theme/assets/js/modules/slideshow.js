@@ -9,8 +9,11 @@ export function initSlideshow() {
   const slideshow = {
     slides: slides,
     captions: document.querySelectorAll('.caption'),
-    prevBtn: document.querySelector('.slide-nav.prev'),
-    nextBtn: document.querySelector('.slide-nav.next'),
+    // Select both desktop and mobile buttons separately
+    desktopPrevBtn: document.querySelector('.slide-nav.desktop-nav.prev'),
+    desktopNextBtn: document.querySelector('.slide-nav.desktop-nav.next'),
+    mobilePrevBtn: document.querySelector('.slide-nav.mobile-nav.prev'),
+    mobileNextBtn: document.querySelector('.slide-nav.mobile-nav.next'),
     currentSlideEl: document.getElementById('current-slide'),
     totalSlides: slides.length,
     currentIndex: 0,
@@ -21,9 +24,11 @@ export function initSlideshow() {
       // Check for hash in URL on page load
       this.checkUrlHash();
       
-      // Set up click events
-      if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
-      if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+      // Set up click events for BOTH sets of buttons
+      if (this.desktopPrevBtn) this.desktopPrevBtn.addEventListener('click', () => this.prevSlide());
+      if (this.desktopNextBtn) this.desktopNextBtn.addEventListener('click', () => this.nextSlide());
+      if (this.mobilePrevBtn) this.mobilePrevBtn.addEventListener('click', () => this.prevSlide());
+      if (this.mobileNextBtn) this.mobileNextBtn.addEventListener('click', () => this.nextSlide());
       
       // Set up keyboard navigation
       document.addEventListener('keydown', this.handleKeydown);
@@ -78,38 +83,48 @@ export function initSlideshow() {
     }, 100),
     
     showSlide: function(index, updateHash = true) {
-      // Hide all slides
-      this.slides.forEach(slide => {
-        slide.classList.remove('active');
-        slide.classList.add('inactive');
-      });
+      // Find currently active slide
+      const currentSlide = document.querySelector('.slide.active');
+      const currentIndex = currentSlide ? parseInt(currentSlide.getAttribute('data-index'), 10) : -1;
       
-      // Hide all captions
+      // Don't do anything if clicking on the same slide
+      if (currentIndex === index) return;
+      
+      // Handle caption transitions first (they're faster)
       if (this.captions && this.captions.length > 0) {
         this.captions.forEach(caption => {
           caption.classList.remove('active');
-          caption.classList.add('inactive');
         });
+        
+        if (this.captions[index]) {
+          this.captions[index].classList.add('active');
+        }
       }
       
-      // Show selected slide and caption
-      this.slides[index].classList.add('active');
+      // Mark current slide for fade out
+      if (currentSlide) {
+        currentSlide.classList.remove('active');
+        currentSlide.classList.add('fade-out');
+        
+        // Remove the fade-out class after transition completes
+        setTimeout(() => {
+          currentSlide.classList.remove('fade-out');
+          currentSlide.classList.add('inactive');
+        }, 700); // Match transition time (0.7s = 700ms)
+      }
+      
+      // Show new slide
       this.slides[index].classList.remove('inactive');
-      
-      if (this.captions && this.captions[index]) {
-        this.captions[index].classList.add('active');
-        this.captions[index].classList.remove('inactive');
-      }
+      this.slides[index].classList.add('active');
       
       // Update counter
       if (this.currentSlideEl) {
         this.currentSlideEl.textContent = index + 1;
       }
       
-      // Update URL hash if needed - SAFER METHOD
+      // Update URL hash if needed
       if (updateHash) {
         try {
-          // Check if we're still on the same page before updating history
           if (document.body.contains(this.slides[index])) {
             history.replaceState(null, null, `#slide${index}`);
           }

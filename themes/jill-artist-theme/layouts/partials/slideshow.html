@@ -4,40 +4,39 @@
     {{ range $index, $slide := .Params.slides }}
     {{ $image := $.Page.Resources.GetMatch $slide.image }}
     
-    <!-- Generate various sized images for different devices -->
-    {{ $imageXs := $image.Resize "300x" }}
-    {{ $imageSm := $image.Resize "500x" }}
-    {{ $imageMd := $image.Resize "700x" }}
-    {{ $imageLg := $image.Resize "1080x" }}
-    {{ $imageXl := $image.Resize "1280x" }}
+    <!-- Generate only 3 sizes aligned with our breakpoints -->
+    {{ $smallImage := $image.Resize "480x" }}    <!-- For $breakpoint-small devices -->
+    {{ $mediumImage := $image.Resize "900x" }}   <!-- For $breakpoint-mobile/tablet -->
+    {{ $largeImage := $image.Resize "1600x" }}   <!-- For desktop/large screens -->
     
     <!-- WebP versions -->
-    {{ $imageXsWebP := $imageXs.Process "webp" }}
-    {{ $imageSmWebP := $imageSm.Process "webp" }}
-    {{ $imageMdWebP := $imageMd.Process "webp" }}
-    {{ $imageLgWebP := $imageLg.Process "webp" }}
-    {{ $imageXlWebP := $imageXl.Process "webp" }}
+    {{ $smallImageWebP := $smallImage.Process "webp q95" }}
+    {{ $mediumImageWebP := $mediumImage.Process "webp q95" }}
+    {{ $largeImageWebP := $largeImage.Process "webp q95" }}
     
+    <!-- Slide content here -->
     <div class="slide {{ if eq $index 0 }}active{{ else }}inactive{{ end }}" data-index="{{ $index }}">
       <div class="slide-content">
+        <!-- Picture element here -->
         <picture>
-          <!-- WebP versions with more size options -->
+          <!-- WebP versions -->
           <source 
-            srcset="{{ $imageXsWebP.RelPermalink }} 300w, 
-                    {{ $imageSmWebP.RelPermalink }} 500w, 
-                    {{ $imageMdWebP.RelPermalink }} 700w, 
-                    {{ $imageLgWebP.RelPermalink }} 1080w, 
-                    {{ $imageXlWebP.RelPermalink }} 1280w"
-            sizes="(min-width: 1280px) 1280px, 100vw"
+            srcset="{{ $smallImageWebP.RelPermalink }} 480w, 
+                    {{ $mediumImageWebP.RelPermalink }} 900w, 
+                    {{ $largeImageWebP.RelPermalink }} 1600w"
+            sizes="(max-width: 480px) 480px, 
+                   (max-width: 900px) 900px, 
+                   1600px"
             type="image/webp">
+            
           <!-- Fallback for browsers that don't support WebP -->
-          <img src="{{ $image.RelPermalink }}" 
-               srcset="{{ $imageXs.RelPermalink }} 300w,
-                       {{ $imageSm.RelPermalink }} 500w,
-                       {{ $imageMd.RelPermalink }} 700w,
-                       {{ $imageLg.RelPermalink }} 1080w,
-                       {{ $imageXl.RelPermalink }} 1280w"
-               sizes="(min-width: 1280px) 1280px, 100vw"
+          <img src="{{ $mediumImage.RelPermalink }}" 
+               srcset="{{ $smallImage.RelPermalink }} 480w,
+                       {{ $mediumImage.RelPermalink }} 900w,
+                       {{ $largeImage.RelPermalink }} 1600w"
+               sizes="(max-width: 480px) 100vw, 
+                      (max-width: 900px) 100vw, 
+                      100vw"
                width="{{ $image.Width }}" 
                height="{{ $image.Height }}"
                alt="{{ with $slide.caption }}{{ . }}{{ else }}Artwork by Jill Bonovitz{{ end }}" 
@@ -48,20 +47,26 @@
     </div>
     {{ end }}
     
+    <!-- Desktop navigation buttons - positioned over images -->
+    <button class="slide-nav desktop-nav prev" aria-label="Previous slide">&lt;</button>
+    <button class="slide-nav desktop-nav next" aria-label="Next slide">&gt;</button>
+    
     <div class="slide-footer">
-      <div class="slide-count">
-        <span id="current-slide">1</span> / <span id="total-slides">{{ len .Params.slides }}</span>
+      <div class="slide-nav-container">
+        <button class="slide-nav mobile-nav prev" aria-label="Previous slide">&lt;</button>
+        <div class="slide-count">
+          <span id="current-slide">1</span> / <span id="total-slides">{{ len .Params.slides }}</span>
+        </div>
+        <button class="slide-nav mobile-nav next" aria-label="Next slide">&gt;</button>
       </div>
       
+      <!-- Captions -->
       {{ range $index, $slide := .Params.slides }}
       <div class="caption {{ if eq $index 0 }}active{{ else }}inactive{{ end }}">
         {{ $slide.caption }}
       </div>
       {{ end }}
     </div>
-    
-    <button class="slide-nav prev" aria-label="Previous slide">&lt;</button>
-    <button class="slide-nav next" aria-label="Next slide">&gt;</button>
   </div>
 </div>
 {{ end }}
