@@ -76,10 +76,14 @@
   "description": "{{ with $slide.caption }}{{ . }}{{ else }}Artwork by Jill Bonovitz{{ end }}",
   "width": {{ $image.Width }},
   "height": {{ $image.Height }},
-  "author": {
+  
+  "creator": {
     "@type": "Person",
     "name": "Jill Bonovitz"
-  }
+  },
+  
+  "creditText": "Jill Bonovitz",
+  "copyrightNotice": "© {{ now.Format "2006" }} Jill Bonovitz. All rights reserved."
 }
 </script>
 {{ end }}
