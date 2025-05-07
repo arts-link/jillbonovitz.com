@@ -86,49 +86,31 @@
   }
 }
 
-// Navigation container - always at the top
+// Navigation container - consistent for all screen sizes
 .slide-nav-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
+  width: 100%;
   z-index: 1;
   margin-bottom: 10px;
 }
 
-// Slide counter - wider to fit properly
+// Slide counter - centered
 .slide-count {
   font-size: 0.9rem;
   color: $color-text;
-  padding: 0 15px 0 0;
-  width: 60px;
-  flex-shrink: 0;
-  text-align: left;
-  position: relative; // Ensure it's positioned above the ::before
-  z-index: 1; // Higher than the ::before element
-}
-
-// Caption container with enhanced transition and positioning
-.caption {
-  display: none; // Hide by default
+  text-align: center;
   position: relative;
   z-index: 1;
-  max-width: calc(100% - 30px);
-  margin: 0;
-  
-  &.active {
-    display: block; // Show only when active
-  }
+  flex-grow: 1; // Take up available space to center it
 }
 
-// Navigation buttons - positioned over images on desktop
+// Navigation buttons - consistent styling
 .slide-nav {
-  // These ensure buttons appear over the images
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100; // Higher z-index to ensure they appear above everything
-  
-  // Button styling
+  position: static; // Not absolute anymore
+  transform: none; // No Y-centering
   background-color: transparent; 
   border: 1px solid $color-text;
   color: $color-text;
@@ -137,54 +119,23 @@
   border-radius: 50%;
   font-size: 18px;
   cursor: pointer;
-  
-  // Positioning
-  &.prev {
-    left: $container-padding;
-  }
-  
-  &.next {
-    right: $container-padding;
-  }
-  
-  // Hover effect
-  &:hover {
-    border-color: $color-accent;
-    color: $color-accent;
-  }
-}
-
-// Desktop navigation buttons - refined appearance
-.desktop-nav.slide-nav {
-  // Keep larger size
-  width: 50px; // Keep increased size for better clickability
-  height: 50px;
-  
-  // More subtle appearance
-  border: 1px solid $color-text; // Back to 1px border
-  font-size: 20px; // Slightly larger font but not too large
-  font-weight: normal; // Remove bold
-  
-  // Subtle contrast
-  background-color: rgba(255, 255, 255, 0.1); // Very slight white background
-  
-  // Smooth hover state
-  transition: all 0.2s ease;
+  z-index: 1;
   
   &:hover {
     border-color: $color-accent;
     color: $color-accent;
-    background-color: rgba(255, 255, 255, 0.2); // Subtle hover state
-    transform: translateY(-50%) scale(1.05); // Smaller scale effect
+    background-color: rgba(255, 255, 255, 0.1);
   }
+  
 }
 
-// Hide mobile navigation on desktop
+// Remove desktop/mobile specific styles
+.desktop-nav.slide-nav,
 .mobile-nav.slide-nav {
-  display: none;
+  display: none; // Hide these since we're no longer using them
 }
 
-// Mobile responsive adjustments
+// Mobile responsive adjustments - keep only mobile-specific tweaks
 @media (max-width: $breakpoint-small) {
   .slide-image {
     max-height: 70vh; // Limit extremely tall images on mobile
@@ -194,47 +145,25 @@
     padding: 15px $mobile-padding;
   }
   
-  .slide-nav-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between; // Space items evenly
-    align-items: center;
-    padding: 0; // Remove padding on container
-  }
+  // These styles are now shared with desktop
+  // .slide-nav-container styles can be removed from here
+  // .slide-count styles can be removed from here
+  // .slide-nav styles can be removed from here
+}
+
+// Caption styling
+.caption {
+  display: none; // Hide by default
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  margin: 10px 0 0 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  color: $color-text;
   
-  .slide-count {
-    text-align: center;
-    flex-grow: 1; // Make counter take up remaining space
-  }
-  
-  .slide-nav {
-    position: static;
-    transform: none;
-    background-color: transparent;
-    border: 1px solid $color-text; // Match desktop border
-    margin: 0;
-    flex-shrink: 0; // Prevent buttons from shrinking
-    
-    &:hover {
-      border-color: $color-accent;
-    }
-  }
-  
-  // Hide desktop navigation on mobile
-  .desktop-nav.slide-nav {
-    display: none;
-  }
-  
-  // Show mobile navigation
-  .mobile-nav.slide-nav {
-    display: block;
-    position: static;
-    transform: none;
-    background-color: transparent;
-    border: 1px solid $color-text;
-    margin: 0;
-    flex-shrink: 0;
+  &.active {
+    display: block; // Show only when active
   }
 }
 

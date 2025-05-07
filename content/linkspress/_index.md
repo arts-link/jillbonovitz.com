@@ -1,5 +1,8 @@
 ---
 title: "Links/Press"
+aliases:
+  - /press1.htm
+  - /press5.htm
 showContentMap: true
 ---
 

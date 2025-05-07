@@ -1,6 +1,37 @@
 {{ define "main" }}
 {{ $bgImage := .Resources.GetMatch "images/bonovitz_0754-tall-home.jpg" }}
-<div class="home-background" style="background-image: url('{{ $bgImage.RelPermalink }}');">
-  <!-- Background image now loaded via Hugo resources -->
+
+<!-- Create WebP version with good compression -->
+{{ $bgImageWebP := $bgImage.Process "webp q85" }}
+
+<style>
+  /* Default fallback using original JPG */
+  .home-background {
+    background-image: url('{{ $bgImage.RelPermalink }}');
+  }
+  
+  /* WebP version for browsers that support it */
+  .webp .home-background {
+    background-image: url('{{ $bgImageWebP.RelPermalink }}');
+  }
+</style>
+
+<div class="home-background">
+  <!-- Background image loaded via Hugo resources -->
 </div>
+
+<script>
+  // Simple WebP detection script
+  (function() {
+    var WebP = new Image();
+    WebP.onload = WebP.onerror = function() {
+      if (WebP.height === 2) {
+        document.documentElement.classList.add('webp');
+      } else {
+        document.documentElement.classList.add('no-webp');
+      }
+    };
+    WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+  })();
+</script>
 {{ end }}

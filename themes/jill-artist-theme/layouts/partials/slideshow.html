@@ -5,21 +5,18 @@
     {{ $image := $.Page.Resources.GetMatch $slide.image }}
     
     <!-- Generate only 3 sizes aligned with our breakpoints -->
-    {{ $smallImage := $image.Resize "480x" }}    <!-- For $breakpoint-small devices -->
-    {{ $mediumImage := $image.Resize "900x" }}   <!-- For $breakpoint-mobile/tablet -->
-    {{ $largeImage := $image.Resize "1600x" }}   <!-- For desktop/large screens -->
+    {{ $smallImage := $image.Resize "480x" }}
+    {{ $mediumImage := $image.Resize "900x" }}
+    {{ $largeImage := $image.Resize "1600x" }}
     
     <!-- WebP versions -->
     {{ $smallImageWebP := $smallImage.Process "webp q95" }}
     {{ $mediumImageWebP := $mediumImage.Process "webp q95" }}
     {{ $largeImageWebP := $largeImage.Process "webp q95" }}
     
-    <!-- Slide content here -->
     <div class="slide {{ if eq $index 0 }}active{{ else }}inactive{{ end }}" data-index="{{ $index }}">
       <div class="slide-content">
-        <!-- Picture element here -->
         <picture>
-          <!-- WebP versions -->
           <source 
             srcset="{{ $smallImageWebP.RelPermalink }} 480w, 
                     {{ $mediumImageWebP.RelPermalink }} 900w, 
@@ -29,7 +26,6 @@
                    1600px"
             type="image/webp">
             
-          <!-- Fallback for browsers that don't support WebP -->
           <img src="{{ $mediumImage.RelPermalink }}" 
                srcset="{{ $smallImage.RelPermalink }} 480w,
                        {{ $mediumImage.RelPermalink }} 900w,
@@ -47,20 +43,16 @@
     </div>
     {{ end }}
     
-    <!-- Desktop navigation buttons - positioned over images -->
-    <button class="slide-nav desktop-nav prev" aria-label="Previous slide">&lt;</button>
-    <button class="slide-nav desktop-nav next" aria-label="Next slide">&gt;</button>
-    
     <div class="slide-footer">
       <div class="slide-nav-container">
-        <button class="slide-nav mobile-nav prev" aria-label="Previous slide">&lt;</button>
+        <button class="slide-nav prev" aria-label="Previous slide">&lt;</button>
         <div class="slide-count">
           <span id="current-slide">1</span> / <span id="total-slides">{{ len .Params.slides }}</span>
         </div>
-        <button class="slide-nav mobile-nav next" aria-label="Next slide">&gt;</button>
+        <button class="slide-nav next" aria-label="Next slide">&gt;</button>
       </div>
       
-      <!-- Captions -->
+      <!-- Captions - preserved exactly as they were -->
       {{ range $index, $slide := .Params.slides }}
       <div class="caption {{ if eq $index 0 }}active{{ else }}inactive{{ end }}">
         {{ $slide.caption }}

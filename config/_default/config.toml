@@ -19,3 +19,21 @@ theme = "jill-artist-theme"
 [sitemap]
   changefreq = "monthly"
   filename = "sitemap.xml"
+
+# Explicitly disable all taxonomies
+[taxonomies]
+  # Intentionally left empty - no taxonomies
+
+# Server configuration to handle non-existent paths
+[server]
+  [[server.redirects]]
+    from = "/categories/**"
+    to = "/404.html"
+    status = 404
+    force = true
+  
+  [[server.redirects]]
+    from = "/tags/**" 
+    to = "/404.html"
+    status = 404
+    force = true

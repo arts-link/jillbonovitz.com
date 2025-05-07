@@ -9,11 +9,9 @@ export function initSlideshow() {
   const slideshow = {
     slides: slides,
     captions: document.querySelectorAll('.caption'),
-    // Select both desktop and mobile buttons separately
-    desktopPrevBtn: document.querySelector('.slide-nav.desktop-nav.prev'),
-    desktopNextBtn: document.querySelector('.slide-nav.desktop-nav.next'),
-    mobilePrevBtn: document.querySelector('.slide-nav.mobile-nav.prev'),
-    mobileNextBtn: document.querySelector('.slide-nav.mobile-nav.next'),
+    // Use a single set of button selectors
+    prevBtn: document.querySelector('.slide-nav.prev'),
+    nextBtn: document.querySelector('.slide-nav.next'),
     currentSlideEl: document.getElementById('current-slide'),
     totalSlides: slides.length,
     currentIndex: 0,
@@ -24,11 +22,9 @@ export function initSlideshow() {
       // Check for hash in URL on page load
       this.checkUrlHash();
       
-      // Set up click events for BOTH sets of buttons
-      if (this.desktopPrevBtn) this.desktopPrevBtn.addEventListener('click', () => this.prevSlide());
-      if (this.desktopNextBtn) this.desktopNextBtn.addEventListener('click', () => this.nextSlide());
-      if (this.mobilePrevBtn) this.mobilePrevBtn.addEventListener('click', () => this.prevSlide());
-      if (this.mobileNextBtn) this.mobileNextBtn.addEventListener('click', () => this.nextSlide());
+      // Set up click events for the unified buttons
+      if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
+      if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
       
       // Set up keyboard navigation
       document.addEventListener('keydown', this.handleKeydown);

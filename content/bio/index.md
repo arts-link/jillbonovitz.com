@@ -1,5 +1,7 @@
 ---
 title: "Bio"
+aliases:
+  - /bio.html
 showContentMap: true
 ---
 

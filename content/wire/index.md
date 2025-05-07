@@ -1,5 +1,7 @@
 ---
 title: "Wire Sculptures"
+aliases:
+  - /wire.html
 type: "gallery"
 slides:
   - id: 1

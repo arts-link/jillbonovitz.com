@@ -1,0 +1,19 @@
+# robots.txt for jillbonovitz.com
+User-agent: *
+Allow: /
+
+# Allow all crawlers access to the content
+Disallow: /admin/
+Disallow: /search/
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /page/
+
+# Optimize crawl budget by disallowing search results, pagination pages
+Disallow: /*?*
+
+# Point to sitemap for better discovery
+Sitemap: https://jillbonovitz.com/sitemap.xml
+
+# Add a reasonable crawl delay to prevent overloading server
+Crawl-delay: 10

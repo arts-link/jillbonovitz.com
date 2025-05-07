@@ -1,5 +1,7 @@
 ---
 title: "Clay"
+aliases:
+  - /clay.html
 type: "gallery"
 slides:
   - id: 1
