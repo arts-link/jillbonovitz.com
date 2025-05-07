@@ -41,6 +41,9 @@ slides:
   - id: 13
     image: "images/bonovitz-hemitage-web.jpg"
     caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H, Collection of the Hermitage State Museum, St Petersburg, Russia"
+  - id: 20
+    image: "images/vase-1E copy.jpg"
+    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H"
   - id: 17
     image: "images/bonovitz_1187-web.jpg"
     caption: "2015, terra cotta clay with underglaze, 5\" - 10\" h x 4\" - 8\" w"
