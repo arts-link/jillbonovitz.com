@@ -62,3 +62,25 @@
   </div>
 </div>
 {{ end }}
+
+<!-- Add this at the end of your slideshow template -->
+{{ range $index, $slide := .Params.slides }}
+{{ $image := $.Page.Resources.GetMatch $slide.image }}
+{{ if $image }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": "{{ $image.Permalink }}",
+  "name": "{{ with $slide.title }}{{ . }}{{ else }}Artwork by Jill Bonovitz{{ end }}",
+  "description": "{{ with $slide.caption }}{{ . }}{{ else }}Artwork by Jill Bonovitz{{ end }}",
+  "width": {{ $image.Width }},
+  "height": {{ $image.Height }},
+  "author": {
+    "@type": "Person",
+    "name": "Jill Bonovitz"
+  }
+}
+</script>
+{{ end }}
+{{ end }}

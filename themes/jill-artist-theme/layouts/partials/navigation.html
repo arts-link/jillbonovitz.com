@@ -11,23 +11,35 @@
   
   <nav class="main-navigation">
     <ul id="primary-menu" class="menu">
-      <li class="menu-item {{ if .IsHome }}active{{ end }}">
-        <a href="/">Home</a>
+      <li class="menu-item {{ if .IsHome }}active{{ end }}" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <a href="/" itemprop="url">
+          <span itemprop="name">Home</span>
+        </a>
       </li>
-      <li class="menu-item {{ if in .RelPermalink "/wire/" }}active{{ end }}">
-        <a href="/wire/">Wire</a>
+      <li class="menu-item {{ if in .RelPermalink "/wire/" }}active{{ end }}" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <a href="/wire/" itemprop="url">
+          <span itemprop="name">Wire</span>
+        </a>
       </li>
-      <li class="menu-item {{ if in .RelPermalink "/clay/" }}active{{ end }}">
-        <a href="/clay/">Clay</a>
+      <li class="menu-item {{ if in .RelPermalink "/clay/" }}active{{ end }}" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <a href="/clay/" itemprop="url">
+          <span itemprop="name">Clay</span>
+        </a>
       </li>
-      <li class="menu-item {{ if in .RelPermalink "/linkspress/" }}active{{ end }}">
-        <a href="/linkspress/">Links/Press</a>
+      <li class="menu-item {{ if in .RelPermalink "/linkspress/" }}active{{ end }}" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <a href="/linkspress/" itemprop="url">
+          <span itemprop="name">Links/Press</span>
+        </a>
       </li>
-      <li class="menu-item {{ if in .RelPermalink "/bio/" }}active{{ end }}">
-        <a href="/bio/">Bio</a>
+      <li class="menu-item {{ if in .RelPermalink "/bio/" }}active{{ end }}" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <a href="/bio/" itemprop="url">
+          <span itemprop="name">Bio</span>
+        </a>
       </li>
-      <li class="menu-item {{ if in .RelPermalink "/contact/" }}active{{ end }}">
-        <a href="/contact/">Contact</a>
+      <li class="menu-item {{ if in .RelPermalink "/contact/" }}active{{ end }}" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <a href="/contact/" itemprop="url">
+          <span itemprop="name">Contact</span>
+        </a>
       </li>
     </ul>
   </nav>
