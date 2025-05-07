@@ -1,5 +1,5 @@
 # Production-specific configuration
-baseURL = "https://jillbonovitz.com"
+baseURL = "https://jillbonovitz.com/"
 
 [params]
   enablePlausible = true  # Set to false to disable even in production
