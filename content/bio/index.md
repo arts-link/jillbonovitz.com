@@ -279,6 +279,9 @@ Tile Kitchen Floor, Private residence, Philadelphia, PA
 
 ## SELECTED BIBLIOGRAPHY
 
+## 2024
+Zwilling, Jennifer,"[Clay and Conversations with Helen Drutt and Jill Bonovitz](https://www.youtube.com/watch?v=iY49irUhC7A)," The Clay Studio 
+
 ### 2021
 Trice, Emilie, "[Collector Spotlight: Jill and Sheldon Bonovitz, Champions of Outsider Art](https://www.artworkarchive.com/blog/collector-spotlight-jill-and-sheldon-bonovitz-champions-of-outsider-art)," Artwork Archive
 
