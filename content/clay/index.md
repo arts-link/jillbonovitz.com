@@ -40,12 +40,12 @@ slides:
   - id: 12
     image: "images/bonovitz_0845-web.jpg"
     caption: "2013, porcelain clay with glaze, 3-1/2 \"H x 6-1/2\" W"
-  - id: 13
-    image: "images/bonovitz-hemitage-web.jpg"
-    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H, Collection of the Hermitage State Museum, St Petersburg, Russia"
   - id: 20
     image: "images/IMG_0045-copy.JPG"
     caption: "Unfired Porcelian Vases, 4\" - 10\" H"
+  - id: 13
+    image: "images/bonovitz-hemitage-web.jpg"
+    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H, Collection of the Hermitage State Museum, St Petersburg, Russia"
   - id: 21
     image: "images/Gray-pots.jpg"
     caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H"
