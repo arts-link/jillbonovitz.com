@@ -27,6 +27,9 @@ showContentMap: true
 
 ## SELECTED GROUP EXHIBITIONS
 
+### 2025
+"The ArtShow," Hicks Art Center, Bucks County Community College, Newtown, PA
+
 ### 2024
 "(reF)OCUS: Then and Now " The Clay Studio, Philadelphia, PA
 
