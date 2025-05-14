@@ -76,6 +76,10 @@ slides:
   - id: 26
     image: "images/comcast.jpg"
     caption: "Journey, 2017, wire, 3'9\" x 2', Collection Comcast Technology Center, Philadelphia, PA"
+    
+  - id: 27
+    image: "images/Visionary-woman.jpg"
+    caption: "Moore College of Art and Design, Visionary Woman Award, 2019"
 
   - id: 19
     image: "images/bonovitz-moore-signage.jpg"
