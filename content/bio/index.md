@@ -279,7 +279,7 @@ Tile Kitchen Floor, Private residence, Philadelphia, PA
 
 ## SELECTED BIBLIOGRAPHY
 
-## 2024
+### 2024
 Zwilling, Jennifer,"[Clay and Conversations with Helen Drutt and Jill Bonovitz](https://www.youtube.com/watch?v=iY49irUhC7A)," The Clay Studio 
 
 ### 2021
