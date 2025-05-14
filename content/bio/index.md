@@ -240,7 +240,7 @@ Acadia Summer Arts Program, 1 week residency, Bar Harbor, Maine
 ## COMMISSIONS AND PROJECTS
  
 ### 2019
-"[Philadelphia Convention & Visitors Bureau] (https://www.paconventionart.com/artwork/teres-vase-series-green-gray-and-pink)," Philadelphia, PA  
+"[Philadelphia Convention & Visitors Bureau](https://www.paconventionart.com/artwork/teres-vase-series-green-gray-and-pink)," Philadelphia, PA  
 
 ### 2018
 Comcast Center Philadelphia Campus, Philadelphia, PA
