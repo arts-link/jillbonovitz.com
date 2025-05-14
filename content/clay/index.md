@@ -16,6 +16,9 @@ slides:
   - id: 4
     image: "images/bonovitz_0868-web.jpg"
     caption: "2015/16, porcelain clay with underglaze and glaze, 2\"H x 18\" diameter"
+  - id: 23
+    image: "images/DSC_8317-copy.jpg"
+    caption: "2015/16, porcelain clay with underglaze and glaze,detail, 2\"H x 18\" diameter"
   - id: 5
     image: "images/bonovitz-1358-web-rt.jpg"
     caption: "silence, 1989, earthenware with terra sigillata, 3-1/2\"H x 24\" diameter"
