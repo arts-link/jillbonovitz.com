@@ -236,9 +236,12 @@ Acadia Summer Arts Program, 1 week residency, Bar Harbor, Maine
 "Prize for Excellence in Craftsmanship and Design," Philadelphia Craft Show, Philadelphia, PA  
 
 ## COMMISSIONS AND PROJECTS
-
+ 
 ### 2019
 Philadelphia Convention & Visitors Bureau, Philadelphia, PA  
+
+### 2018
+Comcast Center Philadelphia Campus, Philadelphia, PA
 
 ### 2011
 Studio show to benefit arts education in Philadelphia public schools  
