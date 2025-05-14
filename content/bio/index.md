@@ -29,7 +29,9 @@ showContentMap: true
 
 ### 2024
 "(reF)OCUS: Then and Now " The Clay Studio, Philadelphia, PA
+
 "Founders & Foundations," The Clay Studio, Philadelphia, PA
+
 "Small Favors," The Clay Studio, Philadelphia, PA
 
 ### 2023
