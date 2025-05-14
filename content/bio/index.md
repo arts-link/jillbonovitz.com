@@ -280,6 +280,7 @@ Tile Kitchen Floor, Private residence, Philadelphia, PA
 ## SELECTED BIBLIOGRAPHY
 
 ### 2024
+Craig, Stover, "[ArtShow with artist Jill Bonovitz](https://www.youtube.com/watch?v=0hvleMlV2WU)," The ArtShow
 Zwilling, Jennifer,"[Clay and Conversations with Helen Drutt and Jill Bonovitz](https://www.youtube.com/watch?v=iY49irUhC7A)," The Clay Studio 
 
 ### 2021
