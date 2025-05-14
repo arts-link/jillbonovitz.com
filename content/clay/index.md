@@ -4,6 +4,15 @@ aliases:
   - /clay.html
 type: "gallery"
 slides:
+  - id: 5
+    image: "images/bonovitz-1358-web-rt.jpg"
+    caption: "silence, 1989, earthenware with terra sigillata, 3-1/2\"H x 24\" diameter"
+  - id: 6
+    image: "images/bonovitz-1365-web-rt.jpg"
+    caption: "sage, 1989, earthenware with terra sigillata, 5\"H x 25\" diameter"
+  - id: 7
+    image: "images/bonovitz-1539-web-rt.jpg"
+    caption: "the sea in me, 1989 earthenware with terra sigillata, 4\"H x 24\" diameter, Collection Museum of Arts and Design, New York, NY"
   - id: 1
     image: "images/bonovitz_0859-da-web.jpg"
     caption: "2015/16, porcelain clay with underglaze and glaze, 2\"H x 20\" diameter"
@@ -19,15 +28,6 @@ slides:
   - id: 23
     image: "images/DSC_8317-copy.jpg"
     caption: "2015/16, porcelain clay with underglaze and glaze,detail, 2\"H x 18\" diameter"
-  - id: 5
-    image: "images/bonovitz-1358-web-rt.jpg"
-    caption: "silence, 1989, earthenware with terra sigillata, 3-1/2\"H x 24\" diameter"
-  - id: 6
-    image: "images/bonovitz-1365-web-rt.jpg"
-    caption: "sage, 1989, earthenware with terra sigillata, 5\"H x 25\" diameter"
-  - id: 7
-    image: "images/bonovitz-1539-web-rt.jpg"
-    caption: "the sea in me, 1989 earthenware with terra sigillata, 4\"H x 24\" diameter, Collection Museum of Arts and Design, New York, NY"
   - id: 8
     image: "images/bonovitz_0783-web.jpg"
     caption: "2010-2016, porcelain clay with underglaze and glaze, 3\"H x 7\" diameter"
