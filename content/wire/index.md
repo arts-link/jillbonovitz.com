@@ -66,7 +66,7 @@ slides:
     
     
   - id: 17
-    image: "images/bonovitz_0882-web.jpg"
+    image: "images/hanging-2.jpg"
     caption: "2013, wire and tape, 24 x 18 x 16\""
     
   - id: 18
