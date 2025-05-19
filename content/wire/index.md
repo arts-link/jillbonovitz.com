@@ -74,7 +74,7 @@ slides:
     caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA"
 
   - id: 26
-    image: "images/comcast.jpg"
+    image: "images/journey-updated.jpg"
     caption: "Journey, 2017, wire, 3'9\" x 2', Collection Comcast Technology Center, Philadelphia, PA"
     
   - id: 27
