@@ -70,7 +70,7 @@ slides:
     caption: "2013, wire and tape, 24 x 18 x 16\""
     
   - id: 18
-    image: "images/bonovitz_1115-web.jpg"
+    image: "images/hanging 3.jpg"
     caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA"
 
   - id: 26
