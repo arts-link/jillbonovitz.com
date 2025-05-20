@@ -98,8 +98,12 @@ slides:
     caption: "4\"w and 2.5\" high, felt and wire"
 
   - id: 24
-    image: "images/red-earmuffs_BON0099.jpg"
+    image: "images/edited-earmuffs-wire.jpg"
     caption: "1.5\"w and 3.5\" high, felt and wire"
+
+  - id: 28
+    image: "images/puff-wire.jpg"
+    caption: "1.5\"w and 3.5\" high, cotton and wire"
     
   - id: 23
     image: "images/bonovitz-flower-wall.jpg"
