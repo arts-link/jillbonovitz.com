@@ -94,7 +94,7 @@ slides:
     caption: "Installation at Moore College of Art and Design, Visionary Woman Award, 2019"
   
   - id: 22
-    image: "images/bonovitz-moore-6.jpg"
+    image: "images/double-wire.jpg"
     caption: "4\"w and 2.5\" high, felt and wire"
 
   - id: 24
