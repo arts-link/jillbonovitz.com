@@ -12,7 +12,7 @@ slides:
     caption: "sage, 1989, earthenware with terra sigillata, 5\"H x 25\" diameter"
   - id: 26
     image: "images/softly-sighing-pma.jpg"
-    caption: "softly sighing, 1989, earthenware with terra sigillata, 5\"H x 26\" diameter"
+    caption: "softly sighing, 1989, earthenware with terra sigillata, 5\"H x 26\" diameter, Collection Philadelphia Museum of Art, Philadelphia, PA"
   - id: 7
     image: "images/bonovitz-1539-web-rt.jpg"
     caption: "the sea in me, 1989 earthenware with terra sigillata, 4\"H x 24\" diameter, Collection Museum of Arts and Design, New York, NY"
