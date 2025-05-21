@@ -10,6 +10,9 @@ slides:
   - id: 6
     image: "images/bonovitz-1365-web-rt.jpg"
     caption: "sage, 1989, earthenware with terra sigillata, 5\"H x 25\" diameter"
+  - id: 26
+    image: "images/softly-sighing-pma.jpg"
+    caption: "softly sighing, 1989, earthenware with terra sigillata, 5\"H x 26\" diameter"
   - id: 7
     image: "images/bonovitz-1539-web-rt.jpg"
     caption: "the sea in me, 1989 earthenware with terra sigillata, 4\"H x 24\" diameter, Collection Museum of Arts and Design, New York, NY"
@@ -54,6 +57,9 @@ slides:
     caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H"
   - id: 22
     image: "images/Warm-gray-pots.jpg"
+    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H"
+  - id: 25
+    image: "images/3-black-and-green.JPG"
     caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H"
   - id: 24
     image: "images/poreclain-nationalmuseumjpg.jpg"
