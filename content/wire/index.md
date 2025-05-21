@@ -64,7 +64,6 @@ slides:
     image: "images/bonovitz_1168-wire-basket-web.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
     
-    
   - id: 17
     image: "images/hanging-2.jpg"
     caption: "2013, wire and tape, 24 x 18 x 16\""
@@ -105,7 +104,7 @@ slides:
     image: "images/puff-wire.jpg"
     caption: "1.5\"w and 3.5\" high, cotton and wire"
     
-- id: 22
+  - id: 22
     image: "images/double-wire.jpg"
     caption: "4\"w and 2.5\" high, felt, plant material and wire"
     
