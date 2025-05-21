@@ -102,7 +102,7 @@ slides:
 
   - id: 28
     image: "images/puff-wire.jpg"
-    caption: "1.5\"w and 3.5\" high, cotton and wire"
+    caption: "3\"w and 3.5\" high, cotton and wire"
     
   - id: 30
     image: "images/wire-group-red-hats.jpg"
