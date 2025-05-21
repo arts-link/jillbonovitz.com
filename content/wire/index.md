@@ -93,17 +93,21 @@ slides:
     image: "images/bonvitz-moore-red-wire-wall.jpg"
     caption: "Installation at Moore College of Art and Design, Visionary Woman Award, 2019"
   
-  - id: 22
-    image: "images/double-wire.jpg"
-    caption: "4\"w and 2.5\" high, felt and wire"
+  - id: 29
+    image: "images/bonovitz-moore-6.jpg"
+    caption: "4\"w and 2.5\" high, felt, and wire"
 
   - id: 24
     image: "images/edited-earmuffs-wire.jpg"
-    caption: "1.5\"w and 3.5\" high, felt and wire"
+    caption: "1.5\"w and 3.5\" high, felt, and wire"
 
   - id: 28
     image: "images/puff-wire.jpg"
     caption: "1.5\"w and 3.5\" high, cotton and wire"
+    
+- id: 22
+    image: "images/double-wire.jpg"
+    caption: "4\"w and 2.5\" high, felt, plant material and wire"
     
   - id: 23
     image: "images/bonovitz-flower-wall.jpg"
