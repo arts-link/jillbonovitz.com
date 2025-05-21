@@ -108,6 +108,10 @@ slides:
     image: "images/double-wire.jpg"
     caption: "4\"w and 2.5\" high, felt, plant material and wire"
     
+  - id: 30
+    image: "images/wire-group-red-hats.jpg"
+    caption: "1.5\"w and 3.5\" high, felt, and wire"
+        
   - id: 23
     image: "images/bonovitz-flower-wall.jpg"
     caption: "Photograph of studio wall, plant material and wire, 51 x 66\""
