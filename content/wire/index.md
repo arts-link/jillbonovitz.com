@@ -104,10 +104,6 @@ slides:
     image: "images/puff-wire.jpg"
     caption: "1.5\"w and 3.5\" high, cotton and wire"
     
-  - id: 22
-    image: "images/double-wire.jpg"
-    caption: "4\"w and 2.5\" high, felt, plant material and wire"
-    
   - id: 30
     image: "images/wire-group-red-hats.jpg"
     caption: "1.5\"w and 3.5\" high, felt, and wire"
