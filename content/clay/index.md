@@ -61,9 +61,6 @@ slides:
   - id: 24
     image: "images/poreclain-nationalmuseumjpg.jpg"
     caption: "2023, porcelain clay with glaze, 4\" - 10\" H, Collection of the Nationalmuseum, Stockholm, Sweden"
-  - id: 25
-    image: "images/3-black-and-green.JPG"
-    caption: "1998 - 2016, porcelain clay with glaze, 4\" - 10\" H"
   - id: 17
     image: "images/bonovitz_1187-web.jpg"
     caption: "2015, terra cotta clay with underglaze, 5\" - 10\" h x 4\" - 8\" w"
