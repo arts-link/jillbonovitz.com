@@ -104,7 +104,7 @@ slides:
     image: "images/puff-wire.jpg"
     caption: "3\"w and 3.5\" high, cotton and wire"
     
- - id: 31
+  - id: 31
     image: "images/spiral-fluff.jpg"
     caption: "3\"w and 3.5\" high, cotton and wire"
     
