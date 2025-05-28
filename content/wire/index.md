@@ -44,10 +44,6 @@ slides:
     image: "images/painted-fluff.jpg"
     caption: "4.5\"w and 4\" high, cotton and wire"
     
-  - id: 28
-    image: "images/puff-wire.jpg"
-    caption: "3\"w and 3.5\" high, cotton and wire"
-    
   - id: 31
     image: "images/spiral-fluff.jpg"
     caption: "3\"w and 3.5\" high, cotton and wire"
