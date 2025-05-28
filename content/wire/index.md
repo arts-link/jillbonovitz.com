@@ -39,6 +39,10 @@ slides:
   - id: 9
     image: "images/bonovitz-1140-web.jpg"
     caption: "2015/2016, wire, paint, petal, and clay, approx. 2.5 x 3.5\""
+
+  - id: 31
+    image: "images/spiral-fluff.jpg"
+    caption: "3\"w and 3.5\" high, cotton and wire"
     
   - id: 10
     image: "images/bonovitz_0773-web.jpg"
@@ -106,10 +110,6 @@ slides:
 
   - id: 28
     image: "images/puff-wire.jpg"
-    caption: "3\"w and 3.5\" high, cotton and wire"
-    
-  - id: 31
-    image: "images/spiral-fluff.jpg"
     caption: "3\"w and 3.5\" high, cotton and wire"
         
   - id: 23
