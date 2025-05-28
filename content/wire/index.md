@@ -112,7 +112,7 @@ slides:
     image: "images/edited-earmuffs-wire.jpg"
     caption: "1.5\"w and 3.5\" high, felt, and wire"
     
-   - id: 33
+  - id: 33
     image: "images/red-hat-wire.jpg"
     caption: "2\"w and 4\" high, felt, and wire"
         
