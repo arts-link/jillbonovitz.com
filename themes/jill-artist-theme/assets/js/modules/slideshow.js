@@ -9,9 +9,9 @@ export function initSlideshow() {
   const slideshow = {
     slides: slides,
     captions: document.querySelectorAll('.caption'),
-    // Use a single set of button selectors
-    prevBtn: document.querySelector('.slide-nav.prev'),
-    nextBtn: document.querySelector('.slide-nav.next'),
+    // Get both sets of navigation buttons
+    prevBtns: document.querySelectorAll('.slide-nav.prev'),
+    nextBtns: document.querySelectorAll('.slide-nav.next'),
     currentSlideEl: document.getElementById('current-slide'),
     totalSlides: slides.length,
     currentIndex: 0,
@@ -22,9 +22,14 @@ export function initSlideshow() {
       // Check for hash in URL on page load
       this.checkUrlHash();
       
-      // Set up click events for the unified buttons
-      if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
-      if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+      // Set up click events for all prev/next buttons
+      this.prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => this.prevSlide());
+      });
+      
+      this.nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => this.nextSlide());
+      });
       
       // Set up keyboard navigation
       document.addEventListener('keydown', this.handleKeydown);
@@ -34,6 +39,12 @@ export function initSlideshow() {
       
       // Handle browser navigation (back/forward buttons)
       window.addEventListener('hashchange', this.handleHashChange);
+      
+      // Position buttons
+      positionNavButtons();
+      
+      // Add resize listener
+      window.addEventListener('resize', positionNavButtons);
     },
     
     // Check URL hash and navigate to correct slide
@@ -131,6 +142,12 @@ export function initSlideshow() {
       
       // Update current index
       this.currentIndex = index;
+      
+      // After slide transition
+      setTimeout(positionNavButtons, 100);
+      
+      // Dispatch custom event
+      window.dispatchEvent(new CustomEvent('slide-changed'));
     },
     
     nextSlide: function() {
@@ -172,4 +189,32 @@ function debounce(func, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
+}
+
+// Function to position navigation buttons based on window height and image
+function positionNavButtons() {
+  // Get active slide
+  const activeSlide = document.querySelector('.slide.active');
+  if (!activeSlide) return;
+  
+  const navContainer = activeSlide.querySelector('.image-nav-container');
+  const image = activeSlide.querySelector('.slide-image');
+  if (!navContainer || !image) return;
+  
+  const imageRect = image.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  
+  // Calculate bottom position: 20px from bottom of window or bottom of image
+  const fromWindowBottom = windowHeight - 60;
+  const fromImageBottom = imageRect.bottom - 60;
+  
+  // Use whichever is higher in the page (smaller value)
+  const targetPosition = Math.min(fromWindowBottom, fromImageBottom);
+  
+  // Position relative to the top of the image
+  const positionFromTop = targetPosition - imageRect.top;
+  
+  // Apply the position
+  navContainer.style.bottom = 'auto';
+  navContainer.style.top = `${positionFromTop}px`;
 }

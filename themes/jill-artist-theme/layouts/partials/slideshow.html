@@ -16,6 +16,12 @@
     
     <div class="slide {{ if eq $index 0 }}active{{ else }}inactive{{ end }}" data-index="{{ $index }}">
       <div class="slide-content">
+        <!-- Add image overlay navigation -->
+        <div class="image-nav-container">
+          <button class="slide-nav image-nav prev" aria-label="Previous slide">&lt;</button>
+          <button class="slide-nav image-nav next" aria-label="Next slide">&gt;</button>
+        </div>
+        
         <picture>
           <source 
             srcset="{{ $smallImageWebP.RelPermalink }} 480w, 

@@ -84,6 +84,19 @@
     background-color: $color-bg;
     z-index: 0;
   }
+  
+  // Caption area navigation - hide on desktop, show on mobile only
+  .slide-nav-container {
+    .slide-nav {
+      // Always show on mobile
+      display: block;
+      
+      // Hide on larger screens
+      @media (min-width: $breakpoint-mobile) {
+        display: none;
+      }
+    }
+  }
 }
 
 // Navigation container - consistent for all screen sizes
@@ -165,6 +178,49 @@
   &.active {
     display: block; // Show only when active
   }
+}
+
+// Image overlay navigation
+.image-nav-container {
+  position: absolute;
+  bottom: 20px; // Position at bottom instead of top
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+  pointer-events: none; // So clicks pass through to the container
+  
+  // Hide on mobile screens
+  @media (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+}
+
+// Style the image navigation buttons
+.image-nav {
+  background-color: rgba(255, 255, 255, 0.2); // Almost transparent background
+  border: 1px solid $color-text;
+  color: $color-text;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  pointer-events: auto; // Make buttons clickable
+  opacity: 0.8;
+  transition: opacity 0.3s, background-color 0.3s;
+  
+  &:hover {
+    opacity: 1;
+    border-color: $color-accent;
+    color: $color-accent;
+    background-color: rgba(255, 255, 255, 0.5); // More visible on hover
+  }
+  
+  // Add a subtle shadow to help visibility against light backgrounds
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 // Add universal box-sizing to all elements
