@@ -72,6 +72,10 @@ slides:
     image: "images/bonovitz_1168-wire-basket-web.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
     
+  - id: 34
+    image: "images/Red-string-wire.jpg"
+    caption: "2013, wire and tape, 24 x 18 x 16\""
+    
   - id: 17
     image: "images/hanging-2.jpg"
     caption: "2013, wire and tape, 24 x 18 x 16\""
