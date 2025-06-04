@@ -6,6 +6,8 @@ aliases:
 showContentMap: true
 ---
 
+[Guest Artist with Craig Stover](https://www.youtube.com/watch?v=0hvleMlV2WU)
+
 [Sculpture Magazine article by Scott Rothstein](sculpture-magazine.html)
 
 [Wendy Steinberg Article](wendy-steinberg.html)
