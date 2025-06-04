@@ -28,6 +28,8 @@ showContentMap: true
 ## SELECTED GROUP EXHIBITIONS
 
 ### 2025
+"Small Favors," The Clay Studio, Philadelphia, PA
+
 "The ArtShow," Hicks Art Center, Bucks County Community College, Newtown, PA
 
 ### 2024
