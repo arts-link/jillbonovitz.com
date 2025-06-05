@@ -73,7 +73,7 @@ slides:
     caption: "2016, wire and paint, 6 x 16 x 20\""
 
   - id: 36
-    image: "images/colorful-hanging-wire3.jpg"
+    image: "images/Replacement-wire.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
     
   - id: 18
