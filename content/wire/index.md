@@ -71,6 +71,10 @@ slides:
   - id: 15
     image: "images/bonovitz_1168-wire-basket-web.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
+
+  - id: 36
+    image: "images/colorful-hanging-wire3.jpg"
+    caption: "2016, wire and paint, 6 x 16 x 20\""
     
   - id: 18
     image: "images/hanging 3.jpg"
