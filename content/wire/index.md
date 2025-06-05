@@ -72,10 +72,6 @@ slides:
     image: "images/bonovitz_1168-wire-basket-web.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
     
-  - id: 35
-    image: "colorful-hanging-wire-2.jpg"
-    caption: "2013, wire and paint, 24 x 18 x 16\""
-    
   - id: 18
     image: "images/hanging 3.jpg"
     caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA"
