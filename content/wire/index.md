@@ -75,14 +75,14 @@ slides:
   - id: 36
     image: "images/Replacement-wire.jpg"
     caption: "2016, wire and paint, 6 x 16 x 20\""
-
-  - id: 37
-    image: "images/double-hanging-wire.jpg"
-    caption: "2016, wire, yarn and paint, 6 x 16 x 20\""  
     
   - id: 18
     image: "images/hanging 3.jpg"
     caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA"
+
+  - id: 37
+    image: "images/double-hanging-wire.jpg"
+    caption: "2016, wire, yarn and paint, 6 x 16 x 20\""  
 
   - id: 26
     image: "images/journey-updated-1.jpg"
