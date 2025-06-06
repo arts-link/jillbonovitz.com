@@ -78,7 +78,7 @@ slides:
 
   - id: 37
     image: "images/double-hanging-wire.jpg"
-    caption: "2016, wire, yarn and paint, 6 x 16 x 20\"   
+    caption: "2016, wire, yarn and paint, 6 x 16 x 20\""  
     
   - id: 18
     image: "images/hanging 3.jpg"
