@@ -67,22 +67,14 @@ slides:
   - id: 14
     image: "images/wire-1.jpg"
     caption: "2017, wire, paint and berries, 17 x 31 x 31\""
-    
-  - id: 15
-    image: "images/bonovitz_1168-wire-basket-web.jpg"
-    caption: "2016, wire and paint, 6 x 16 x 20\""
 
   - id: 36
     image: "images/Replacement-wire.jpg"
-    caption: "2016, wire and paint, 6 x 16 x 20\""
+    caption: "2017, wire and paint, 6 x 16 x 20\""
     
   - id: 18
     image: "images/hanging 3.jpg"
-    caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA"
-
-  - id: 37
-    image: "images/double-hanging-wire.jpg"
-    caption: "2016, wire, yarn and paint, 6 x 16 x 20\""  
+    caption: "2015, wire, paint, and rose petals, 28 x 24 x 15\", Collection Temple University,         Philadelphia, PA" 
 
   - id: 26
     image: "images/journey-updated-1.jpg"
@@ -103,6 +95,10 @@ slides:
   - id: 21
     image: "images/bonvitz-moore-red-wire-wall.jpg"
     caption: "Installation at Moore College of Art and Design, Visionary Woman Award, 2019"
+
+  - id: 23
+    image: "images/bonovitz-flower-wall.jpg"
+    caption: "Photograph of studio wall, plant material and wire, 51 x 66\""
   
   - id: 29
     image: "images/bonovitz-moore-6.jpg"
@@ -120,7 +116,4 @@ slides:
     image: "images/wire-group-red-hats.jpg"
     caption: "1.5\"w and 3.5\" high, felt, and wire"
         
-  - id: 23
-    image: "images/bonovitz-flower-wall.jpg"
-    caption: "Photograph of studio wall, plant material and wire, 51 x 66\""
 ---
