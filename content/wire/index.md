@@ -79,10 +79,6 @@ slides:
   - id: 26
     image: "images/journey-updated-1.jpg"
     caption: "Journey, 2017, wire, 3'9\" x 2', Collection Comcast Technology Center, Philadelphia, PA"
-    
-  - id: 27
-    image: "images/Visionary-woman.jpg"
-    caption: "Moore College of Art and Design, Visionary Woman Award, 2019"
 
   - id: 19
     image: "images/bonovitz-moore-signage.jpg"
@@ -91,15 +87,15 @@ slides:
   - id: 20
     image: "images/bonovitz-moore-installation.jpg"
     caption: "Installation at Moore College of Art and Design, Visionary Woman Award, 2019"
+
+  - id: 23
+    image: "images/bonovitz-flower-wall.jpg"
+    caption: "Photograph of studio wall, plant material and wire, 51 x 66\""
     
   - id: 21
     image: "images/bonvitz-moore-red-wire-wall.jpg"
     caption: "Installation at Moore College of Art and Design, Visionary Woman Award, 2019"
 
-  - id: 23
-    image: "images/bonovitz-flower-wall.jpg"
-    caption: "Photograph of studio wall, plant material and wire, 51 x 66\""
-  
   - id: 29
     image: "images/bonovitz-moore-6.jpg"
     caption: "4\"w and 2.5\" high, felt, and wire"
