@@ -41,8 +41,8 @@ slides:
     caption: "2015/2016, wire, paint, petal, and clay, approx. 2.5 x 3.5\""
 
   - id: 32
-    image: "images/Two-legged-puff-edited.jpg"
-    caption: "4.5\"w and 4\" high, cotton and wire"
+    image: "images/golden-leaf.jpg"
+    caption: "2.5\"w and 4.5\" high, cotton and wire"
     
   - id: 31
     image: "images/spiral-fluff.jpg"
