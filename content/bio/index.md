@@ -416,14 +416,17 @@ Juror: Fleisher Challenge Exhibition; Clay Studio Juried Solo Show; Moore Colleg
 
 ## THE JILL AND SHELDON BONOVITZ COLLECTION, EXHIBITIONS
 
-2013  Great and Mighty Things, the Philadelphia Museum of Art, Philadelphia, PA  
+2022  Of God and Country, American Art From the Jill and Sheldon Bonovitz Collection,
+Philadelphia Museum of Art, Philadelphia, PA
+
+2013  Great and Mighty Things, Philadelphia Museum of Art, Philadelphia, PA  
 An exhibition and promised gift of two hundred works of self-taught art to the Philadelphia Museum of Art.  
 
-2017  Phulkari: The Embroidered Textiles of Punjab from the Jill and Sheldon Bonovitz Collection, the Philadelphia Museum of Art, Philadelphia, PA  
+2017  Phulkari: The Embroidered Textiles of Punjab from the Jill and Sheldon Bonovitz Collection, Philadelphia Museum of Art, Philadelphia, PA  
 An exhibition and gift to the Philadelphia Museum of Art.  
 
-2009  Kantha: The Embroidered Quilts of Bengal from the Jill and Sheldon Bonovitz and the Stella Kramrisch Collections, the Philadelphia Museum of Art, Philadelphia, PA  
-An exhibition and gift to the Philadelphia Museum of Art.  
+2009  Kantha: The Embroidered Quilts of Bengal from the Jill and Sheldon Bonovitz and the Stella Kramrisch Collections, Philadelphia Museum of Art, Philadelphia, PA  
+An exhibition and gift to Philadelphia Museum of Art.  
 
 ## THE JILL AND SHELDON BONOVITZ COLLECTION, PRESS
 
