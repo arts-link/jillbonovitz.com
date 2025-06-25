@@ -416,7 +416,7 @@ Juror: Fleisher Challenge Exhibition; Clay Studio Juried Solo Show; Moore Colleg
 
 ## THE JILL AND SHELDON BONOVITZ COLLECTION, EXHIBITIONS
 
-2022  Of God and Country, American Art From the Jill and Sheldon Bonovitz Collection,
+2023  Of God and Country, American Art From the Jill and Sheldon Bonovitz Collection,
 Philadelphia Museum of Art, Philadelphia, PA
 
 2013  Great and Mighty Things, Philadelphia Museum of Art, Philadelphia, PA  
