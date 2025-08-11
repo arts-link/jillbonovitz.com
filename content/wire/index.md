@@ -113,7 +113,7 @@ slides:
     caption: "1.5\"w and 3.5\" high, felt, and wire"
 
   - id: 38
-    image: "VP-1.jpg"
+    image: "VP-1.jpg" 
     caption: "2015/16, wire, flower, shell, stick, 1.5 x 2\" – 16 x 4.5\""    
         
 ---
