@@ -114,7 +114,7 @@ slides:
 
 
   - id: 38
-    image: "vp1.jpg" 
+    image: "IMG_6396.jpg" 
     caption: "2015/16, wire, flower, shell, stick, 1.5 x 2\" – 16 x 4.5\""    
         
 ---
