@@ -112,7 +112,7 @@ slides:
     image: "images/wire-group-red-hats.jpg"
     caption: "1.5\"w and 3.5\" high, felt, and wire"
  
-  - id: 38
-    image: "JP-2.jpg"
+  - id: 40
+    image: "jp-one.jpg"
     caption: "2023, wire, plant material, and acrylic paint, 1.5 x 2.5\" – 16.5 x 4.5\""        
 ---
