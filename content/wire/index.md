@@ -113,11 +113,11 @@ slides:
     caption: "1.5\"w and 3.5\" high, felt, and wire"
  
   - id: 40
-    image: "vp-six-2.jpg"
+    image: "images/vp-six-2.jpg"
     caption: "2023, wire, plant material, and acrylic paint, 1.5 x 2.5\" – 16.5 x 4.5\""
     
   - id: 41
-    image: "vp-one.jpg"
+    image: "images/vp-one.jpg"
     caption: "2023, wire, plant material, and acrylic paint, 1.5 x 2.5\" – 16.5 x 4.5\""
          
 ---
